@@ -1,2 +1,3 @@
-# python_utils
-🐍Python utilities that makes sense to reuse within UMCCR
+# UMCCR python utilities
+
+🐍 Utilities that makes sense to reuse within UMCCR python-based projects.
