@@ -95,7 +95,7 @@ def find_loc():
                 ),
                 'test-GRCh37': dict(
                     fa='/Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa',
-                    panel_of_normals_dir='/Users/vsaveliev/googledrive/bio/extras/panel_of_normals/GRCh37',
+                    panel_of_normals_dir='/Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals',
                     truth_sets={
                         'test-mb': {
                             'vcf': '/Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-benchmark.vcf.gz',
@@ -128,7 +128,7 @@ def find_loc():
                 ),
                 'test-GRCh37': dict(
                     fa='tests/data/test-GRCh37.fa',
-                    panel_of_normals_dir='tests/data/panel_of_normals/GRCh37',
+                    panel_of_normals_dir='tests/data/panel_of_normals',
                     truth_sets={
                         'test-mb': {
                             'vcf': 'tests/data/test-benchmark.vcf.gz',
@@ -180,7 +180,7 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
     path = abspath(path)
     if not exists(path):
         critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{path_or_genome}"')
-    return abspath(path)
+    return path
 
 
 def get_genomes_d(genome, loc=None):
