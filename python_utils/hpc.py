@@ -153,14 +153,14 @@ def get_loc():
     if loc:
         return loc
     else:
-        critical(f'Could not detect location by hostname {socket.gethostname()}')
+        critical(f'hpc.py: could not detect location by hostname {socket.gethostname()}')
 
 
 def get_ref_file(path_or_genome, key='fa', loc=None):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
     if exists(path_or_genome):
-        return path_or_genome
+        return abspath(path_or_genome)
 
     loc = loc or get_loc()
     g_d = get_genomes_d(path_or_genome, loc)
@@ -169,7 +169,7 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
     for k in (key if not isinstance(key, str) else [key]):
         path = path.get(k)
         if not path:
-            critical(f'{path_or_genome} is not found as file at {os.getcwd()},'
+            critical(f'hpc.py: {path} is not found as file at {os.getcwd()},'
                      f' and no genome[{", ".join(key)}] for genome "{path_or_genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
@@ -177,13 +177,14 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
         fa = g_d['fa']
         g_basedir = abspath(join(dirname(fa), pardir))
         path = path.format(g=g_basedir)
+    path = abspath(path)
     if not exists(path):
-        critical(f'{path} at {os.getcwd()} does not exist at host "{loc.name}" for genome "{path_or_genome}"')
-    return path
+        critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{path_or_genome}"')
+    return abspath(path)
 
 
 def get_genomes_d(genome, loc=None):
     loc = loc or get_loc()
     if genome not in loc.genomes:
-        critical(f'Genome {genome} not found for host "{loc.name}". Available: {", ".join(loc.genomes)}')
+        critical(f'hpc.py: genome {genome} not found for host "{loc.name}". Available: {", ".join(loc.genomes)}')
     return loc.genomes[genome]
