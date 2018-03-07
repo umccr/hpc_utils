@@ -164,10 +164,15 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
 
     loc = loc or get_loc()
     g_d = get_genomes_d(path_or_genome, loc)
-    path = g_d.get(key)
-    if not path:
-        critical(f'{path_or_genome} is not found as file at {os.getcwd()}, and no "{key}" for genome "{path_or_genome}"'
-                 f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
+
+    path = g_d
+    for k in (key if not isinstance(key, str) else [key]):
+        path = path.get(k)
+        if not path:
+            critical(f'{path_or_genome} is not found as file at {os.getcwd()},'
+                     f' and no genome[{", ".join(key)}] for genome "{path_or_genome}"'
+                     f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
+
     if '{g}' in path:
         fa = g_d['fa']
         g_basedir = abspath(join(dirname(fa), pardir))
