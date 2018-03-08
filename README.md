@@ -33,20 +33,20 @@ Usage:
 ```
 
 Available genomes: 
-- "GRCh37"
+- `"GRCh37"`
 
 Available keys:
-- "fa": reference genome fasta; appending ".fai" to the result guarantees existing index file
-- "az300"
-- "panel_of_normals_dir"
-- "truth_sets": returns a dictionaries of truth set dictionaries, each having "vcf" or optional "bed" keys:
-  - "giab":   # GiaB NA12878 (germline variants)
-    - "vcf"
-    - "bed"
-  - "dream":  # DREAM synthetic challenge 3 (somatic T/N)
-    - "vcf"
-    - "bed"
-  - "mb":     # ICGC medulloblastoma (somatic T/N, https://www.nature.com/articles/ncomms10001)
-    - "vcf"
-  - "colo":   # COLO829 metastatic melanoma cell line (somatic T/N, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837349)
-    - "vcf"
+- `"fa"`: reference genome fasta; appending `".fai"` to the result guarantees existing index file
+- `"az300"`
+- `"panel_of_normals_dir"`
+- `"truth_sets"`: returns a dictionaries of truth set dictionaries, each having `"vcf"` or optional `"bed"` keys:
+  - `"giab"`:   GiaB NA12878 (germline variants)
+    - `"vcf"`
+    - `"bed"`
+  - `"dream"`:  DREAM synthetic challenge 3 (somatic T/N)
+    - `"vcf"`
+    - `"bed"`
+  - `"mb"`:     [ICGC medulloblastoma](https://www.nature.com/articles/ncomms10001) (somatic T/N)
+    - `"vcf"`
+  - `"colo"`:   [COLO829 metastatic melanoma cell line](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837349) (somatic T/N)
+    - `"vcf"`
