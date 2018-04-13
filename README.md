@@ -17,19 +17,19 @@ Usage:
 '/data/cephfs/punim0010/extras'
 
 >>> find_loc().genomes['GRCh37']['fa']
-'/data/projects/punim0010/local/share/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa'
+'/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa'
 
 >>> fp = get_ref_file('GRCh37')
-'/data/projects/punim0010/local/share/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa'
+'/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa'
 
 >>> get_ref_file('GRCh37', 'az300')    
-'/data/projects/punim0010/local/share/bcbio/genomes/Hsapiens/GRCh37/coverage/prioritize/cancer/az300.bed.gz'
+'/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/coverage/prioritize/cancer/az300.bed.gz'
 
 >>> get_ref_file(run.genome_build, ['truth_sets', 'giab', 'bed'])
-'/data/projects/punim0010/local/share/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
+'/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
 
 >>> get_genomes_d('GRCh37')['truth_sets']['giab']['bed']
-'/data/projects/punim0010/local/share/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
+'/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
 ```
 
 Available genomes: 
