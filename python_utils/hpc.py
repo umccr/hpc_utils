@@ -36,6 +36,7 @@ def find_loc():
                     fa='/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals',
+                    gnomad='{g}/variation/gnomad_genome.vcf.gz',
                     truth_sets={
                         'mb': {
                             'vcf': '/data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz',
