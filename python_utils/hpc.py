@@ -33,7 +33,7 @@ def find_loc():
             extras='/data/cephfs/punim0010/extras',
             genomes={
                 'GRCh37': dict(
-                    fa='/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
@@ -55,7 +55,6 @@ def find_loc():
                     },
                 ),
             },
-
         ),
         'raijin': Loc(
             name='raijin',
