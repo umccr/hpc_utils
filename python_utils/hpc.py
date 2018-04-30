@@ -193,8 +193,8 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
     for k in keys:
         path = path.get(k)
         if not path:
-            critical(f'hpc.py: {path} is not found as file at {os.getcwd()},'
-                     f' and no genome[{", ".join(keys)}] for genome "{path_or_genome}"'
+            critical(f'hpc.py: {path_or_genome} is not found as file at {os.getcwd()},'
+                     f' and no keys {", ".join(keys)} for genome "{path_or_genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
     if '{g}' in path:
