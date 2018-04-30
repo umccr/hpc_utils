@@ -57,7 +57,7 @@ def find_loc():
                 'hg38': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
-                    panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
+                    # panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
                     truth_sets={
                         'dream': {
@@ -172,6 +172,13 @@ def get_loc():
         critical(f'hpc.py: could not detect location by hostname {socket.gethostname()}')
 
 
+def ref_file_exists(path_or_genome, key='fa', loc=None):
+    try:
+        return get_ref_file(path_or_genome, key, loc)
+    except:
+        return False
+
+
 def get_ref_file(path_or_genome, key='fa', loc=None):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
@@ -182,11 +189,12 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
     g_d = get_genomes_d(path_or_genome, loc)
 
     path = g_d
-    for k in (key if not isinstance(key, str) else [key]):
+    keys = key if not isinstance(key, str) else [key]
+    for k in keys:
         path = path.get(k)
         if not path:
             critical(f'hpc.py: {path} is not found as file at {os.getcwd()},'
-                     f' and no genome[{", ".join(key)}] for genome "{path_or_genome}"'
+                     f' and no genome[{", ".join(keys)}] for genome "{path_or_genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
     if '{g}' in path:
