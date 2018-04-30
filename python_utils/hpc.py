@@ -57,7 +57,7 @@ def find_loc():
                 'hg38': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
-                    # panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
+                    panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
                     truth_sets={
                         'dream': {
