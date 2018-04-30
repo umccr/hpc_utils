@@ -54,6 +54,22 @@ def find_loc():
                         }
                     },
                 ),
+                'hg38': dict(
+                    fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
+                    az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
+                    panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
+                    gnomad='{g}/variation/gnomad_genome.vcf.gz',
+                    truth_sets={
+                        'dream': {
+                            'vcf': '{g}/validation/dream-syn3/truth_small_variants.vcf.gz',
+                            'bed': '{g}/validation/dream-syn3/truth_regions.bed',
+                        },
+                        'giab': {
+                            'vcf': '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz',
+                            'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
+                        },
+                    },
+                ),
             },
         ),
         'raijin': Loc(
