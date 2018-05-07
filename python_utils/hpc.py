@@ -22,7 +22,9 @@ def find_loc():
          'name '
          'host_pattern '
          'extras '
-         'genomes '
+         'pcgr_dir '
+         'genomes ' 
+         'submit_job_cmd '
     )
 
     hostname = socket.gethostname()
@@ -31,6 +33,8 @@ def find_loc():
             name='spartan',
             host_pattern=r'spartan.*\.hpc\.unimelb\.edu\.au',
             extras='/data/cephfs/punim0010/extras',
+            pcgr_dir='/data/cephfs/punim0010/extras/vlad/synced/pcgr',
+            submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M',
             genomes={
                 'GRCh37': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
@@ -75,6 +79,8 @@ def find_loc():
         'raijin': Loc(
             name='raijin',
             host_pattern=r'^raijin|(r\d\d\d\d$)',
+            pcgr_dir='',
+            submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
                     fa='/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
@@ -94,6 +100,8 @@ def find_loc():
             name='vlad',
             host_pattern=r'^5180L-135800-M.local$',
             extras='/Users/vsaveliev/googledrive/bio/extras',
+            pcgr_dir='',
+            submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
                     fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
@@ -124,6 +132,8 @@ def find_loc():
             name='travis',
             host_pattern=r'^travis-',
             extras='',
+            pcgr_dir='',
+            submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
                     # .fa for goleft depth and VCF normalisation:
