@@ -100,7 +100,7 @@ def find_loc():
             name='vlad',
             host_pattern=r'^5180L-135800-M.local$',
             extras='/Users/vsaveliev/googledrive/bio/extras',
-            pcgr_dir='',
+            pcgr_dir='/Users/vsaveliev/git/pcgr',
             submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
