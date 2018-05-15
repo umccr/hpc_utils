@@ -34,7 +34,7 @@ def find_loc():
             host_pattern=r'spartan.*\.hpc\.unimelb\.edu\.au',
             extras='/data/cephfs/punim0010/extras',
             pcgr_dir='/data/cephfs/punim0010/extras/vlad/synced/pcgr',
-            submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M',
+            submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name}',
             genomes={
                 'GRCh37': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
@@ -101,7 +101,7 @@ def find_loc():
             host_pattern=r'^5180L-135800-M.local$',
             extras='/Users/vsaveliev/googledrive/bio/extras',
             pcgr_dir='/Users/vsaveliev/git/pcgr',
-            submit_job_cmd='',
+            submit_job_cmd='eval',
             genomes={
                 'GRCh37': dict(
                     fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
