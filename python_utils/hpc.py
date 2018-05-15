@@ -33,7 +33,7 @@ def find_loc():
             name='spartan',
             host_pattern=r'spartan.*\.hpc\.unimelb\.edu\.au',
             extras='/data/cephfs/punim0010/extras',
-            pcgr_dir='/data/cephfs/punim0010/extras/vlad/synced/pcgr',
+            pcgr_dir='/data/cephfs/punim0010/extras/pcgr',
             submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name}',
             genomes={
                 'GRCh37': dict(
