@@ -39,6 +39,7 @@ def find_loc():
                 'GRCh37': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
+                    gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
                     truth_sets={
@@ -61,6 +62,7 @@ def find_loc():
                 'hg38': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
+                    gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
                     truth_sets={
@@ -85,6 +87,7 @@ def find_loc():
                 'GRCh37': dict(
                     fa='/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
+                    gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/g/data3/gx8/extras/panel_of_normals',
                     truth_sets={
                         'giab': {
@@ -106,6 +109,7 @@ def find_loc():
                 'GRCh37': dict(
                     fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
+                    gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/Users/vsaveliev/googledrive/bio/extras/panel_of_normals/GRCh37',
                     truth_sets={
                         'mb': {
@@ -116,6 +120,10 @@ def find_loc():
                             'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
                         },
                     }
+                ),
+                'hg38': dict(
+                    fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa',
+                    gtf='{g}/rnaseq/ref-transcripts.gtf',
                 ),
                 'test-GRCh37': dict(
                     fa='/Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa',

@@ -22,7 +22,7 @@ Usage:
 >>> fp = get_ref_file('GRCh37')
 '/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa'
 
->>> get_ref_file('GRCh37', 'az300')    
+>>> get_ref_file('GRCh37', 'az300')
 '/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/coverage/prioritize/cancer/az300.bed.gz'
 
 >>> get_ref_file(run.genome_build, ['truth_sets', 'giab', 'bed'])
