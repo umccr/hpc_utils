@@ -41,7 +41,6 @@ def find_loc():
             genomes={
                 'GRCh37': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
-                    az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
@@ -64,7 +63,6 @@ def find_loc():
                 ),
                 'hg38': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
-                    az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
@@ -89,7 +87,6 @@ def find_loc():
             genomes={
                 'GRCh37': dict(
                     fa='/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
-                    az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/g/data3/gx8/extras/panel_of_normals',
                     truth_sets={
@@ -111,7 +108,6 @@ def find_loc():
             genomes={
                 'GRCh37': dict(
                     fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
-                    az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/Users/vsaveliev/googledrive/bio/extras/panel_of_normals/GRCh37',
                     truth_sets={
@@ -149,8 +145,6 @@ def find_loc():
                 'GRCh37': dict(
                     # .fa for goleft depth and VCF normalisation:
                     fa='../../data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
-                    # for germline subsampling:
-                    az300='{g}/coverage/prioritize/cancer/az300.bed.gz',
                     panel_of_normals_dir='../../data/panel_of_normals',
                     truth_sets={
                         'giab': {
@@ -182,12 +176,11 @@ def find_loc():
             submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
-                    fa='/ref/GRCh37/GRCh37.fa',
-                    az300='/ref/GRCh37/az300.bed.gz',
-                    panel_of_normals_dir='/ref/GRCh37/panel_of_normals',
+                    fa='/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    panel_of_normals_dir='/panel_of_normals',
                     truth_sets={
                         'giab': {
-                            'bed': '/ref/GRCh37/truth_regions.bed',
+                            'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
                         },
                     },
                 )
