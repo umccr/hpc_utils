@@ -14,6 +14,9 @@ def critical(msg):
 ##############################
 ### HPC dependencies paths ###
 
+def get_hostname():
+    return os.environ.get('HOST') or os.environ.get('HOSTNAME') or socket.gethostname()
+
 def find_loc():
     """ Depending on the machine name, return a dict conatining system-dependant paths
         to human reference genomes and extras
@@ -27,7 +30,7 @@ def find_loc():
          'submit_job_cmd '
     )
 
-    hostname = socket.gethostname()
+    hostname = get_hostname()
     loc_by_name = {
         'spartan': Loc(
             name='spartan',
@@ -187,7 +190,7 @@ def get_loc():
     if loc:
         return loc
     else:
-        critical(f'hpc.py: could not detect location by hostname {socket.gethostname()}')
+        critical(f'hpc.py: could not detect location by hostname {get_hostname()}')
 
 
 def ref_file_exists(path_or_genome, key='fa', loc=None):
