@@ -174,6 +174,25 @@ def find_loc():
                 )
             },
         ),
+        'umccrise_docker': Loc(
+            name='umccrise_docker',
+            host_pattern=r'^umccrise_docker$',
+            extras='',
+            pcgr_dir='',
+            submit_job_cmd='',
+            genomes={
+                'GRCh37': dict(
+                    fa='/ref/GRCh37/GRCh37.fa',
+                    az300='/ref/GRCh37/az300.bed.gz',
+                    panel_of_normals_dir='/ref/GRCh37/panel_of_normals',
+                    truth_sets={
+                        'giab': {
+                            'bed': '/ref/GRCh37/truth_regions.bed',
+                        },
+                    },
+                )
+            },
+        ),
     }
     if 'TRAVIS' in os.environ.keys():
         return loc_by_name['travis']
