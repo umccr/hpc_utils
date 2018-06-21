@@ -82,8 +82,9 @@ def find_loc():
         'raijin': Loc(
             name='raijin',
             host_pattern=r'^raijin|(r\d\d\d\d$)',
-            pcgr_dir='',
-            submit_job_cmd='',
+            extras='/g/data3/gx8/extras',
+            pcgr_dir='/g/data3/gx8/extras/umccrise/pcgr',
+            submit_job_cmd='qsub -P gx8 -q normalsp -l walltime=24:00:00 -l ncpus={threads} -l wd -l mem={resources.mem_mb}G -N {job_name}',
             genomes={
                 'GRCh37': dict(
                     fa='/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
@@ -97,7 +98,6 @@ def find_loc():
                     }
                 ),
             },
-            extras='/g/data3/gx8/extras',
         ),
         'vlad': Loc(
             name='vlad',
