@@ -176,7 +176,7 @@ def find_loc():
             submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
-                    fa='/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    fa='/bcbio_genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     panel_of_normals_dir='/panel_of_normals',
                     truth_sets={
                         'giab': {
