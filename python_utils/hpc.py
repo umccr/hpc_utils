@@ -176,20 +176,20 @@ def find_loc():
             submit_job_cmd='',
             genomes={
                 'GRCh37': dict(
-                    fa='/bcbio_genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
-                    panel_of_normals_dir='/GRCh37/panel_of_normals',
+                    fa='/ref.fa',
+                    panel_of_normals_dir='/panel_of_normals',
                     truth_sets={
                         'giab': {
-                            'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
+                            'bed': '/truth_regions.bed',
                         },
                     },
                 ),
                 'hg38': dict(
-                    fa='/bcbio_genomes/Hsapiens/hg38/seq/hg38.fa',
-                    panel_of_normals_dir='/hg38/panel_of_normals',
+                    fa='/ref.fa',
+                    panel_of_normals_dir='/panel_of_normals',
                     truth_sets={
                         'giab': {
-                            'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
+                            'bed': '/truth_regions.bed',
                         },
                     },
                 )
