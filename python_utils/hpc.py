@@ -28,6 +28,7 @@ def find_loc():
          'pcgr_dir '
          'genomes ' 
          'submit_job_cmd '
+         'barcodes_10x '
     )
 
     hostname = get_hostname()
@@ -38,9 +39,11 @@ def find_loc():
             extras='/data/cephfs/punim0010/extras',
             pcgr_dir='/data/cephfs/punim0010/extras/pcgr',
             submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name}',
+            barcodes_10x='/data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    bwa='{g}/bwa/GRCh37.fa',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
@@ -60,9 +63,11 @@ def find_loc():
                             'vcf': '/data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf'
                         }
                     },
+                    ema='/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37',
                 ),
                 'hg38': dict(
                     fa='/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
+                    bwa='{g}/bwa/hg38.fa',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/data/cephfs/punim0010/extras/panel_of_normals/hg38',
                     gnomad='{g}/variation/gnomad_genome.vcf.gz',
@@ -85,11 +90,25 @@ def find_loc():
             extras='/g/data3/gx8/extras',
             pcgr_dir='/g/data3/gx8/extras/umccrise/pcgr',
             submit_job_cmd='qsub -P gx8 -q normalsp -l walltime=24:00:00 -l ncpus={threads} -l wd -l mem={resources.mem_mb}G -N {job_name}',
+            barcodes_10x='/g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
                     fa='/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    bwa='{g}/bwa/GRCh37.fa',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/g/data3/gx8/extras/panel_of_normals',
+                    truth_sets={
+                        'giab': {
+                            'vcf': '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz',
+                            'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
+                        }
+                    }
+                ),
+                'hg38': dict(
+                    fa='/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa',
+                    bwa='{g}/bwa/hg38.fa',
+                    gtf='{g}/rnaseq/ref-transcripts.gtf',
+                    panel_of_normals_dir='/g/data3/gx8/extras/panel_of_normals/hg38',
                     truth_sets={
                         'giab': {
                             'vcf': '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz',
@@ -105,9 +124,11 @@ def find_loc():
             extras='/Users/vsaveliev/googledrive/bio/extras',
             pcgr_dir='/Users/vsaveliev/git/pcgr',
             submit_job_cmd='eval',
+            barcodes_10x='/Users/vsaveliev/googledrive/bio/reference_data/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
                     fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    bwa='{g}/bwa/GRCh37.fa',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                     panel_of_normals_dir='/Users/vsaveliev/googledrive/bio/extras/panel_of_normals/GRCh37',
                     truth_sets={
@@ -141,6 +162,7 @@ def find_loc():
             extras='',
             pcgr_dir='',
             submit_job_cmd='',
+            barcodes_10x='',
             genomes={
                 'GRCh37': dict(
                     # .fa for goleft depth and VCF normalisation:
@@ -174,6 +196,7 @@ def find_loc():
             extras='',
             pcgr_dir='',
             submit_job_cmd='',
+            barcodes_10x='',
             genomes={
                 'GRCh37': dict(
                     fa='/ref.fa',
