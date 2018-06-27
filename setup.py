@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-version = '0.3'
+version = '0.4'
 name = 'python_utils'
 
 setup(

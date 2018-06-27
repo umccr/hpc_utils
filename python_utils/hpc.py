@@ -38,7 +38,8 @@ def find_loc():
             host_pattern=r'spartan.*\.hpc\.unimelb\.edu\.au',
             extras='/data/cephfs/punim0010/extras',
             pcgr_dir='/data/cephfs/punim0010/extras/pcgr',
-            submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name}',
+            submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name}'
+                           ' --output {log_file} --error {log_file}',
             barcodes_10x='/data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
@@ -89,7 +90,8 @@ def find_loc():
             host_pattern=r'^raijin|(r\d\d\d\d$)',
             extras='/g/data3/gx8/extras',
             pcgr_dir='/g/data3/gx8/extras/umccrise/pcgr',
-            submit_job_cmd='qsub -P gx8 -q normalsp -l walltime=24:00:00 -l ncpus={threads} -l wd -l mem={resources.mem_mb}G -N {job_name}',
+            submit_job_cmd='qsub -P gx8 -q normalsp -l walltime=24:00:00 -l ncpus={threads} -l wd -l mem={resources.mem_mb}M -N {job_name}'
+                           ' -o {log_file} -e {log_file}',
             barcodes_10x='/g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
