@@ -244,7 +244,7 @@ def ref_file_exists(path_or_genome, key='fa', loc=None):
         return False
 
 
-def get_ref_file(path_or_genome, key='fa', loc=None):
+def get_ref_file(path_or_genome, key='fa', loc=None, must_exist=True):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
     if exists(path_or_genome):
@@ -267,7 +267,7 @@ def get_ref_file(path_or_genome, key='fa', loc=None):
         g_basedir = abspath(join(dirname(fa), pardir))
         path = path.format(g=g_basedir)
     path = abspath(path)
-    if not exists(path):
+    if must_exist and not exists(path):
         critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{path_or_genome}"')
     return path
 
