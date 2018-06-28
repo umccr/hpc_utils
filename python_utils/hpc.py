@@ -44,7 +44,6 @@ def find_loc():
             pcgr_dir='/data/cephfs/punim0010/extras/pcgr',
             cluster={
                 'submit_cmd': 'sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name} --output {log_file}',
-                'status_cmd': None,
             },
             barcodes_10x='/data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
@@ -99,7 +98,6 @@ def find_loc():
             cluster={
                 'jobscript': join(package_path(), 'jobscript_raijin.sh'),
                 'submit_cmd': 'qsub -P gx8 -q normalsp -l wd -l walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M -N {job_name} -o {log_file} -j oe',
-                'status_cmd': None,
             },
             barcodes_10x='/g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
@@ -136,7 +134,6 @@ def find_loc():
             pcgr_dir='/Users/vsaveliev/git/pcgr',
             cluster={
                 'submit_cmd': 'eval',
-                'status_cmd': 'true',
             },
             barcodes_10x='/Users/vsaveliev/googledrive/bio/reference_data/4M-with-alts-february-2016.txt',
             genomes={
