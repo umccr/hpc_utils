@@ -11,6 +11,10 @@ def critical(msg):
     sys.exit(1)
 
 
+def package_path():
+    return dirname(abspath(__file__))
+
+
 ##############################
 ### HPC dependencies paths ###
 
@@ -27,7 +31,7 @@ def find_loc():
          'extras '
          'pcgr_dir '
          'genomes ' 
-         'submit_job_cmd '
+         'cluster '
          'barcodes_10x '
     )
 
@@ -38,8 +42,10 @@ def find_loc():
             host_pattern=r'spartan.*\.hpc\.unimelb\.edu\.au',
             extras='/data/cephfs/punim0010/extras',
             pcgr_dir='/data/cephfs/punim0010/extras/pcgr',
-            submit_job_cmd='sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name}'
-                           ' --output {log_file}',
+            cluster={
+                'submit_cmd': 'sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M -J {job_name} --output {log_file}',
+                'status_cmd': None,
+            },
             barcodes_10x='/data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
@@ -90,8 +96,11 @@ def find_loc():
             host_pattern=r'^raijin|(r\d\d\d\d$)',
             extras='/g/data3/gx8/extras',
             pcgr_dir='/g/data3/gx8/extras/umccrise/pcgr',
-            submit_job_cmd='qsub -P gx8 -q normalsp -l walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M -N {job_name}'
-                           ' -o {log_file} -j oe',
+            cluster={
+                'jobscript': join(package_path(), 'jobscript_raijin.sh'),
+                'submit_cmd': 'qsub -P gx8 -q normalsp -l wd -l walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M -N {job_name} -o {log_file} -j oe',
+                'status_cmd': None,
+            },
             barcodes_10x='/g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
@@ -125,7 +134,10 @@ def find_loc():
             host_pattern=r'^5180L-135800-M.local$',
             extras='/Users/vsaveliev/googledrive/bio/extras',
             pcgr_dir='/Users/vsaveliev/git/pcgr',
-            submit_job_cmd='eval',
+            cluster={
+                'submit_cmd': 'eval',
+                'status_cmd': 'true',
+            },
             barcodes_10x='/Users/vsaveliev/googledrive/bio/reference_data/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
@@ -163,7 +175,7 @@ def find_loc():
             host_pattern=r'^travis-',
             extras='',
             pcgr_dir='',
-            submit_job_cmd='',
+            cluster=None,
             barcodes_10x='',
             genomes={
                 'GRCh37': dict(
@@ -197,7 +209,7 @@ def find_loc():
             host_pattern=r'^umccrise_docker$',
             extras='',
             pcgr_dir='',
-            submit_job_cmd='',
+            cluster=None,
             barcodes_10x='',
             genomes={
                 'GRCh37': dict(
