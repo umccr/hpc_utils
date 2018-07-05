@@ -205,7 +205,6 @@ def find_loc():
             name='umccrise_docker',
             host_pattern=r'^umccrise_docker$',
             extras='',
-            pcgr_dir='/pcgr',
             cluster=None,
             barcodes_10x='',
             genomes={
