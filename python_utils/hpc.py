@@ -207,6 +207,7 @@ def find_loc():
             extras='',
             cluster=None,
             barcodes_10x='',
+            pcgr_dir='/pcgr',
             genomes={
                 'GRCh37': dict(
                     fa='/ref.fa',
