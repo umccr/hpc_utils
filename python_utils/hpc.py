@@ -97,7 +97,8 @@ def find_loc():
             pcgr_dir='/g/data3/gx8/extras/umccrise/pcgr',
             cluster={
                 'jobscript': join(package_path(), 'jobscript_raijin.sh'),
-                'submit_cmd': 'qsub -P gx8 -q normalsp -l wd -l walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M -N {job_name} -o {log_file} -j oe',
+                'submit_cmd': 'qsub -P gx8 -q normalsp -l wd -N {job_name} -o {log_file} -j oe '
+                              '-l walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M',
             },
             barcodes_10x='/g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt',
             genomes={
