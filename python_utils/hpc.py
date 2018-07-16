@@ -66,7 +66,7 @@ def find_loc():
                             'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
                         },
                         'colo': {
-                            'vcf': '/data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf'
+                            'vcf': '/data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz'
                         }
                     },
                     ema='/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37',
@@ -111,6 +111,9 @@ def find_loc():
                         'giab': {
                             'vcf': '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz',
                             'bed': '{g}/validation/giab-NA12878/truth_regions.bed',
+                        },
+                        'colo': {
+                            'vcf': '/g/data3/gx8/extras/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz',
                         }
                     }
                 ),
