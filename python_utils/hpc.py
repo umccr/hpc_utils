@@ -39,7 +39,7 @@ def find_loc():
     loc_by_name = {
         'spartan': Loc(
             name='spartan',
-            host_pattern=r'spartan.*\.hpc\.unimelb\.edu\.au',
+            host_pattern=r'spartan*',
             extras='/data/cephfs/punim0010/extras',
             pcgr_dir='/data/cephfs/punim0010/extras/pcgr',
             cluster={
