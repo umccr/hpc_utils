@@ -134,21 +134,21 @@ def find_loc():
         'vlad': Loc(
             name='vlad',
             host_pattern=r'^5180L-135800-M.local$',
-            extras='/Users/vsaveliev/googledrive/bio/extras',
+            extras='/Users/vsaveliev/bio/extras',
             pcgr_dir='/Users/vsaveliev/git/pcgr',
             cluster={
                 'submit_cmd': 'eval',
             },
-            barcodes_10x='/Users/vsaveliev/googledrive/bio/reference_data/4M-with-alts-february-2016.txt',
+            barcodes_10x='/Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt',
             genomes={
                 'GRCh37': dict(
-                    fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
+                    fa='/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa',
                     bwa='{g}/bwa/GRCh37.fa',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
-                    panel_of_normals_dir='/Users/vsaveliev/googledrive/bio/extras/panel_of_normals/GRCh37',
+                    panel_of_normals_dir='/Users/vsaveliev/bio/extras/panel_of_normals/GRCh37',
                     truth_sets={
                         'mb': {
-                            'vcf': '/Users/vsaveliev/googledrive/bio/extras/ICGC_MB/truth_small_variants.vcf.gz',
+                            'vcf': '/Users/vsaveliev/bio/extras/ICGC_MB/truth_small_variants.vcf.gz',
                         },
                         'giab': {
                             'vcf': '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz',
@@ -157,7 +157,7 @@ def find_loc():
                     }
                 ),
                 'hg38': dict(
-                    fa='/Users/vsaveliev/googledrive/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa',
+                    fa='/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa',
                     gtf='{g}/rnaseq/ref-transcripts.gtf',
                 ),
                 'test-GRCh37': dict(
