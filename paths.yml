@@ -85,7 +85,7 @@ vlad:
       fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /Users/vsaveliev/bio/extras/panel_of_normals/GRCh37
+      panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
       truth_sets:
         mb:
           vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
