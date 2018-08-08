@@ -1,0 +1,150 @@
+spartan:
+  name: spartan
+  host_pattern: spartan*
+  extras: /data/cephfs/punim0010/extras
+  pcgr_dir: /data/cephfs/punim0010/extras/pcgr
+  cluster:
+    submit_cmd: sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M
+      -J {job_name} --output {log_file}
+  barcodes_10x: /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+  genomes:
+    GRCh37:
+      fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
+      bwa: '{g}/bwa/GRCh37.fa'
+      gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      panel_of_normals_dir: /data/cephfs/punim0010/extras/panel_of_normals
+      gnomad: '{g}/variation/gnomad_genome.vcf.gz'
+      truth_sets:
+        mb:
+          vcf: /data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz
+        dream:
+          vcf: '{g}/validation/dream-syn3/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/dream-syn3/truth_regions.bed'
+        giab:
+          vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+        colo:
+          vcf: /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+      ema: /data/cephfs/punim0010/extras/10x/ema_ref/GRCh37
+    hg38:
+      fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
+      bwa: '{g}/bwa/hg38.fa'
+      gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      panel_of_normals_dir: /data/cephfs/punim0010/extras/panel_of_normals/hg38
+      gnomad: '{g}/variation/gnomad_genome.vcf.gz'
+      truth_sets:
+        dream:
+          vcf: '{g}/validation/dream-syn3/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/dream-syn3/truth_regions.bed'
+        giab:
+          vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+
+raijin:
+  name: raijin
+  host_pattern: ^raijin|(r\d\d\d\d$)
+  extras: /g/data3/gx8/extras
+  pcgr_dir: /g/data3/gx8/extras/umccrise/pcgr
+  cluster:
+    jobscript: /Users/vsaveliev/git/umccr/hpc_utils/hpc_utils/jobscript_raijin.sh
+    submit_cmd: qsub -P gx8 -q normalsp -l wd -N {job_name} -o {log_file} -j oe -l
+      walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
+  barcodes_10x: /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+  genomes:
+    GRCh37:
+      fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
+      bwa: '{g}/bwa/GRCh37.fa'
+      gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals
+      truth_sets:
+        giab:
+          vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+        colo:
+          vcf: /g/data3/gx8/extras/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+    hg38:
+      fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
+      bwa: '{g}/bwa/hg38.fa'
+      gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      panel_of_normals_dir: /g/data3/gx8/extras/panel_of_normals/hg38
+      truth_sets:
+        giab:
+          vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+
+vlad:
+  name: vlad
+  host_pattern: ^5180L-135800-M.local$
+  extras: /Users/vsaveliev/bio/extras
+  pcgr_dir: /Users/vsaveliev/git/pcgr
+  cluster:
+    submit_cmd: eval
+  barcodes_10x: /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
+  genomes:
+    GRCh37:
+      fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
+      bwa: '{g}/bwa/GRCh37.fa'
+      gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      panel_of_normals_dir: /Users/vsaveliev/bio/extras/panel_of_normals/GRCh37
+      truth_sets:
+        mb:
+          vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
+        colo:
+          vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/COLO/truth_small_variants.vcf.gz
+        giab:
+          vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
+          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+    hg38:
+      fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
+      gtf: '{g}/rnaseq/ref-transcripts.gtf'
+    test-GRCh37:
+      fa: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa
+      panel_of_normals_dir: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals
+      truth_sets:
+        test-mb:
+          vcf: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-benchmark.vcf.gz
+
+travis:
+  name: travis
+  host_pattern: ^travis-
+  extras: ''
+  pcgr_dir: ''
+  cluster: null
+  barcodes_10x: ''
+  genomes:
+    GRCh37:
+      fa: ../../data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
+      panel_of_normals_dir: ../../data/panel_of_normals
+      truth_sets:
+        giab:
+          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+        test-mb:
+          test-GRCh37:
+            vcf: ../../data/test-benchmark.vcf.gz
+    test-GRCh37:
+      fa: tests/data/test-GRCh37.fa
+      panel_of_normals_dir: tests/data/panel_of_normals
+      truth_sets:
+        test-mb:
+          vcf: tests/data/test-benchmark.vcf.gz
+
+umccrise_docker:
+  name: umccrise_docker
+  host_pattern: ^umccrise_docker$
+  extras: ''
+  cluster: null
+  barcodes_10x: ''
+  pcgr_dir: /pcgr
+  genomes:
+    GRCh37:
+      fa: /ref.fa
+      panel_of_normals_dir: /panel_of_normals
+      truth_sets:
+        giab:
+          bed: /truth_regions.bed
+    hg38:
+      fa: /ref.fa
+      panel_of_normals_dir: /panel_of_normals
+      truth_sets:
+        giab:
+          bed: /truth_regions.bed

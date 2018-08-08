@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-version = '0.4'
-name = 'python_utils'
+version = '0.5'
+name = 'hpc_utils'
 
 setup(
     name=name,
     version=version,
     author='UMCCR',
-    description='Utilities that makes sense to reuse within UMCCR python-based projects',
+    description='Cluster utils and paths to the reference data in UMCCR servers',
     keywords='bioinformatics',
     license='GPLv3',
     packages=[

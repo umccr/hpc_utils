@@ -1,13 +1,12 @@
-# UMCCR python utilities
+# UMCCR HPC utilities
 
-🐍 Utilities that makes sense to reuse within UMCCR python-based projects.
+🐍 Cluster utils and paths to the reference data in UMCCR servers
 
 #### HPC paths 
-`/python_utils/hpc.py`
 
-Default reference data paths for UMCCR clusters. Detects location by `hostname`. 
+`paths.yml` contains default data paths and settings for common UMCCR clusters. 
 
-Usage:
+`/hpc_utils/hpc.py` is a python API that can detect the machine based on `hostname`. Usage:
 
 ```
 >>> find_loc().name
@@ -33,9 +32,11 @@ Usage:
 ```
 
 Available genomes: 
+
 - `"GRCh37"`
 
 Available keys:
+
 - `"fa"`: reference genome fasta; appending `".fai"` to the result guarantees existing index file
 - `"az300"`
 - `"panel_of_normals_dir"`
