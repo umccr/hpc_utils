@@ -36,14 +36,16 @@ def find_loc():
         loc_by_name = {k: AttrDict(v) for k, v in yaml.load(f).items()}
 
     hostname = get_hostname()
+    loc = None
     if 'TRAVIS' in os.environ.keys():
-        return loc_by_name['travis']
+        loc = loc_by_name['travis']
     else:
-        for loc in loc_by_name.values():
-            if re.match(loc.host_pattern, hostname):
-                return loc
+        for l in loc_by_name.values():
+            if re.match(l.host_pattern, hostname):
+                loc = l
 
-    return None
+    print(f'hpc_utils: hostname: {hostname}, ' + (f'detected host is: {loc.name}' if loc else 'the host is not known.'))
+    return loc
 
 
 def get_loc():
