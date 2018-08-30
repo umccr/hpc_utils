@@ -8,6 +8,7 @@ fi
 
 echo $VERSION > VERSION.txt
 git add VERSION.txt
-git commit -m "Release $VERSION"
+git commit -m "Release $VERSION [ci skip]"
 git tag $VERSION
+git push
 git push --tags
