@@ -1,0 +1,28 @@
+{% set version=load_setup_py_data().get('version') %}
+
+package:
+  name: hpc_utils
+  version: "{{ version }}"
+
+source:
+  path: ../../../
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python ==3.6
+  run:
+    - python ==3.6
+    - ngs_utils
+
+test:
+  imports:
+    - hpc_utils
+
+about:
+  home: https://github.com/umccr/hpc_utils
+  license: GNU General Public License v3 (GPLv3)
+  summary: 'UMCCR HPC paths'
+  license_family: GPL3

@@ -1,12 +1,10 @@
-# UMCCR HPC utilities
+# UMCCR HPC paths
 
-🐍 Cluster utils and paths to the reference data in UMCCR servers
+🖥️ Cluster standard paths to the reference data in UMCCR servers, and python API to query them
 
-#### HPC paths 
+[paths.yml](paths.yml) contains default data paths and settings for common UMCCR clusters. 
 
-`paths.yml` contains default data paths and settings for common UMCCR clusters. 
-
-`/hpc_utils/hpc.py` is a python API that can detect the machine based on `hostname`. Usage:
+`from hpc_utils import hpc` is a python API that can detect the machine based on `hostname`. Usage:
 
 ```
 >>> find_loc().name
@@ -51,3 +49,5 @@ Available keys:
     - `"vcf"`
   - `"colo"`:   [COLO829 metastatic melanoma cell line](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837349) (somatic T/N)
     - `"vcf"`
+
+Installation: `conda install -c vladsaveliev hpc_utils`

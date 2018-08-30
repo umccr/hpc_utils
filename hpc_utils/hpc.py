@@ -1,10 +1,9 @@
-import collections
 import os
 from os.path import join, abspath, dirname, pardir, isfile, exists
-import socket
 import re
 import sys
 import yaml
+from ngs_utils import get_hosname
 
 
 def critical(msg):
@@ -21,12 +20,11 @@ class AttrDict(dict):
         super(AttrDict, self).__init__(*args, **kwargs)
         self.__dict__ = self
 
+
 ##############################
 ### HPC dependencies paths ###
 
-def get_hostname():
-    return os.environ.get('HOST') or os.environ.get('HOSTNAME') or socket.gethostname()
-
+hostname = get_hosname()
 
 def find_loc():
     """ Depending on the machine name, return a dict conatining system-dependant paths
@@ -35,7 +33,6 @@ def find_loc():
     with open(join(package_path(), pardir, 'paths.yml')) as f:
         loc_by_name = {k: AttrDict(v) for k, v in yaml.load(f).items()}
 
-    hostname = get_hostname()
     loc = None
     if 'TRAVIS' in os.environ.keys():
         loc = loc_by_name['travis']
@@ -43,8 +40,6 @@ def find_loc():
         for l in loc_by_name.values():
             if re.match(l.host_pattern, hostname):
                 loc = l
-
-    print(f'hpc_utils: hostname: {hostname}, ' + (f'detected host is: {loc.name}' if loc else 'the host is not known.'))
     return loc
 
 
@@ -53,7 +48,7 @@ def get_loc():
     if loc:
         return loc
     else:
-        critical(f'hpc.py: could not detect location by hostname {get_hostname()}')
+        critical(f'hpc.py: could not detect location by hostname {hostname}')
 
 
 def ref_file_exists(path_or_genome, key='fa', loc=None):
