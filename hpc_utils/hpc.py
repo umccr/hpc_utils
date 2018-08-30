@@ -3,7 +3,7 @@ from os.path import join, abspath, dirname, pardir, isfile, exists
 import re
 import sys
 import yaml
-from ngs_utils import get_hosname
+from ngs_utils.utils import hostname
 
 
 def critical(msg):
@@ -23,8 +23,6 @@ class AttrDict(dict):
 
 ##############################
 ### HPC dependencies paths ###
-
-hostname = get_hosname()
 
 def find_loc():
     """ Depending on the machine name, return a dict conatining system-dependant paths
