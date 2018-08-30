@@ -6,8 +6,8 @@
 set -e
 set -x
 
-PACKAGE_NAME = $1
-ANACONDA_TOKEN = $2
+PACKAGE_NAME=$1
+ANACONDA_TOKEN=$2
 
 if [ -z $PACKAGE_NAME ] ; then
     echo 'PACKAGE_NAME environment variable must be specified' >&2
