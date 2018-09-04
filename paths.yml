@@ -4,7 +4,7 @@ spartan:
   extras: /data/cephfs/punim0010/extras
   pcgr_dir: /data/cephfs/punim0010/extras/pcgr
   cluster:
-    submit_cmd: sbatch -p vccc -n {threads} -t 24:00:00 --mem {resources.mem_mb}M
+    submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
   barcodes_10x: /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   genomes:
