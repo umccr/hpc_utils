@@ -71,6 +71,9 @@ raijin:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+  ensembl_dir: /g/data3/gx8/extras/ensembl
+  vep_data: /g/data3/gx8/extras/ensembl/vep_data
+  iedb_dir: /g/data3/gx8/extras/iedb
 
 vlad:
   name: vlad
