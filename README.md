@@ -1,5 +1,9 @@
 # UMCCR HPC paths
 
+[![Build Status](https://travis-ci.org/umccr/hpc_utils.svg?branch=master)](https://travis-ci.org/umccr/hpc_utils)
+
+[![Anaconda-Server Badge](https://anaconda.org/vladsaveliev/hpc_utils/badges/installer/conda.svg)](https://anaconda.org/vladsaveliev/hpc_utils)
+
 🖥️ Cluster standard paths to the reference data in UMCCR servers, and python API to query them
 
 [paths.yml](paths.yml) contains default data paths and settings for common UMCCR clusters. 

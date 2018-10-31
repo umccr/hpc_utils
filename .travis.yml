@@ -1,9 +1,6 @@
 sudo: required
 
 language: python
-python:
-  # We don't actually use the Travis Python (since we are on conda), but this keeps it organized.
-  - "3.6"
 
 before_install:
   - export PACKAGE_NAME=hpc_utils
