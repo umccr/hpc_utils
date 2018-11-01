@@ -1,3 +1,3 @@
 pip
 setuptools
-ngs_utils>=2.3.9
+ngs_utils>=2.3.16

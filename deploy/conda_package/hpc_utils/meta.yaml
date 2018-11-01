@@ -12,10 +12,11 @@ build:
 
 requirements:
   build:
-    - python >=3.6
+    - python ==3.6
+    - ngs_utils >=2.3.16
   run:
-    - python >=3.6
-    - ngs_utils
+    - python ==3.6
+    - ngs_utils >=2.3.16
 
 test:
   imports:
