@@ -141,14 +141,14 @@ umccrise_docker:
   pcgr_dir: /pcgr
   genomes:
     GRCh37:
-      fa: /ref.fa
-      panel_of_normals_dir: /panel_of_normals
+      fa: /genomes/GRCh37.fa
+      panel_of_normals_dir: /genomes/panel_of_normals/GRCh37
       truth_sets:
         giab:
-          bed: /truth_regions.bed
+          bed: /genomes/truth_regions_GRCh37.bed
     hg38:
-      fa: /ref.fa
-      panel_of_normals_dir: /panel_of_normals
+      fa: /genomes/hg38.fa
+      panel_of_normals_dir: /genomes/panel_of_normals/hg38
       truth_sets:
         giab:
-          bed: /truth_regions.bed
+          bed: /genomes/truth_regions_hg38.bed
