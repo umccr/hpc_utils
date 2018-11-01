@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 from setuptools import setup
+from ngs_utils import setup_utils
 
-version = '0.5'
 name = 'hpc_utils'
+
+version = setup_utils.get_cur_version(name)
 
 setup(
     name=name,
