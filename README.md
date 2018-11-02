@@ -6,7 +6,7 @@
 
 🖥️ Cluster standard paths to the reference data in UMCCR servers, and python API to query them
 
-[paths.yml](paths.yml) contains default data paths and settings for common UMCCR clusters. 
+[hpc_paths/paths.yml](hpc_paths/paths.yml) contains default data paths and settings for common UMCCR clusters. 
 
 `from hpc_utils import hpc` is a python API that can detect the machine based on `hostname`. Usage:
 

@@ -28,7 +28,7 @@ def find_loc():
     """ Depending on the machine name, return a dict conatining system-dependant paths
         to human reference genomes and extras
     """
-    with open(join(package_path(), pardir, 'paths.yml')) as f:
+    with open(join(package_path(), 'paths.yml')) as f:
         loc_by_name = {k: AttrDict(v) for k, v in yaml.load(f).items()}
 
     loc = None

@@ -16,5 +16,8 @@ setup(
     packages=[
         name,
     ],
+    package_data={
+        name: setup_utils.find_package_files('', name),
+    },
     include_package_data=True,
 )
