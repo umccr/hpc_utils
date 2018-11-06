@@ -118,16 +118,13 @@ travis:
   cluster: null
   barcodes_10x: ''
   genomes:
-    GRCh37:
-      fa: ../../data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
-      panel_of_normals_dir: ../../data/panel_of_normals
+    GRCh37:  # for umccrise tests
+      fa: ../../data/genomes/GRCh37/GRCh37.fa
+      panel_of_normals_dir: ../../data/genomes/GRCh37/panel_of_normals
       truth_sets:
         giab:
-          bed: '{g}/validation/giab-NA12878/truth_regions.bed'
-        test-mb:
-          test-GRCh37:
-            vcf: ../../data/test-benchmark.vcf.gz
-    test-GRCh37:
+          bed: ../../data/genomes/GRCh37/truth_regions.bed
+    test-GRCh37:  # for vcf_stuff tests
       fa: tests/data/test-GRCh37.fa
       panel_of_normals_dir: tests/data/panel_of_normals
       truth_sets:
@@ -143,14 +140,14 @@ umccrise_docker:
   pcgr_dir: /pcgr
   genomes:
     GRCh37:
-      fa: /genomes/GRCh37.fa
-      panel_of_normals_dir: /genomes/panel_of_normals/GRCh37
+      fa: /genomes/GRCh37/GRCh37.fa
+      panel_of_normals_dir: /genomes/GRCh37/panel_of_normals
       truth_sets:
         giab:
-          bed: /genomes/truth_regions_GRCh37.bed
+          bed: /genomes/GRCh37/truth_regions.bed
     hg38:
-      fa: /genomes/hg38.fa
-      panel_of_normals_dir: /genomes/panel_of_normals/hg38
+      fa: /genomes/hg38/hg38.fa
+      panel_of_normals_dir: /genomes/hg38/panel_of_normals
       truth_sets:
         giab:
-          bed: /genomes/truth_regions_hg38.bed
+          bed: /genomes/hg38/truth_regions.bed
