@@ -7,6 +7,7 @@ spartan:
     submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
   barcodes_10x: /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+  purple: /data/cephfs/punim0010/extras/woof/data/hmf
   genomes:
     GRCh37:
       fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
@@ -50,6 +51,7 @@ raijin:
     submit_cmd: qsub -P gx8 -q normalsp -l wd -N {job_name} -o {log_file} -j oe -l
       walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
   barcodes_10x: /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+  purple: /g/data3/gx8/extras/woof/data/hmf
   genomes:
     GRCh37:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
