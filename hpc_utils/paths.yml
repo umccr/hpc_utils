@@ -2,12 +2,11 @@ spartan:
   name: spartan
   host_pattern: spartan*
   extras: /data/cephfs/punim0010/extras
-  pcgr_dir: /data/cephfs/punim0010/extras/pcgr
+  pcgr_data: /data/cephfs/punim0010/extras/pcgr/data
   cluster:
     submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
   barcodes_10x: /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
-  purple: /data/cephfs/punim0010/extras/woof/data/hmf
   genomes:
     GRCh37:
       fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
@@ -27,6 +26,8 @@ spartan:
         colo:
           vcf: /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
       ema: /data/cephfs/punim0010/extras/10x/ema_ref/GRCh37
+      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
+      purple_het: '{g}/variation/germline_het_pon.bed.gz'
     hg38:
       fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
       bwa: '{g}/bwa/hg38.fa'
@@ -40,18 +41,19 @@ spartan:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
+      purple_het: '{g}/variation/germline_het_pon.bed.gz'
 
 raijin:
   name: raijin
   host_pattern: ^raijin|(r\d+$)
   extras: /g/data3/gx8/extras
-  pcgr_dir: /g/data3/gx8/extras/umccrise/pcgr
+  pcgr_dir: /g/data3/gx8/extras/umccrise/pcgr/data
   cluster:
     jobscript: /g/data3/gx8/extras/umccrise/src/hpc_utils/hpc_utils/jobscript_raijin.sh
     submit_cmd: qsub -P gx8 -q normalsp -l wd -N {job_name} -o {log_file} -j oe -l
       walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
   barcodes_10x: /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
-  purple: /g/data3/gx8/extras/woof/data/hmf
   genomes:
     GRCh37:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
@@ -64,6 +66,8 @@ raijin:
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
         colo:
           vcf: /g/data3/gx8/extras/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
+      purple_het: '{g}/variation/germline_het_pon.bed.gz'
     hg38:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
       bwa: '{g}/bwa/hg38.fa'
@@ -73,6 +77,8 @@ raijin:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
+      purple_het: '{g}/variation/germline_het_pon.bed.gz'
   ensembl_dir: /g/data3/gx8/extras/ensembl
   vep_data: /g/data3/gx8/extras/ensembl/vep_data
   iedb_dir: /g/data3/gx8/extras/iedb
@@ -81,7 +87,7 @@ vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
   extras: /Users/vsaveliev/bio/extras
-  pcgr_dir: /Users/vsaveliev/git/pcgr
+  pcgr_data: /Users/vsaveliev/git/pcgr/data
   cluster:
     submit_cmd: eval
   barcodes_10x: /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
@@ -100,9 +106,13 @@ vlad:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
+      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
+      purple_het: '{g}/variation/germline_het_pon.bed.gz'
     hg38:
       fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
+      purple_het: '{g}/variation/germline_het_pon.bed.gz'
     test-GRCh37:
       fa: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa
       panel_of_normals_dir: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals
@@ -114,7 +124,7 @@ travis:
   name: travis
   host_pattern: ^travis-
   extras: ''
-  pcgr_dir: ''
+  pcgr_data: ''
   cluster: null
   barcodes_10x: ''
   genomes:
@@ -124,6 +134,8 @@ travis:
       truth_sets:
         giab:
           bed: ../../data/genomes/GRCh37/truth_regions.bed
+      purple_gc:  ../../data/genomes/GRCh37/GC_profile.1000bp.cnp
+      purple_het: ../../data/genomes/GRCh37/germline_het_pon.bed.gz
     test-GRCh37:  # for vcf_stuff tests
       fa: tests/data/test-GRCh37.fa
       panel_of_normals_dir: tests/data/panel_of_normals
@@ -137,7 +149,7 @@ umccrise_docker:
   extras: ''
   cluster: null
   barcodes_10x: ''
-  pcgr_dir: /pcgr
+  pcgr_data: /genomes/pcgr/data
   genomes:
     GRCh37:
       fa: /genomes/GRCh37/GRCh37.fa
@@ -145,9 +157,13 @@ umccrise_docker:
       truth_sets:
         giab:
           bed: /genomes/GRCh37/truth_regions.bed
+      purple_gc:  /genomes/GRCh37/GC_profile.1000bp.cnp
+      purple_het: /genomes/GRCh37/germline_het_pon.bed.gz
     hg38:
       fa: /genomes/hg38/hg38.fa
       panel_of_normals_dir: /genomes/hg38/panel_of_normals
       truth_sets:
         giab:
           bed: /genomes/hg38/truth_regions.bed
+      purple_gc:  /genomes/hg38/GC_profile.1000bp.cnp
+      purple_het: /genomes/hg38/germline_het_pon.bed.gz
