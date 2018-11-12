@@ -48,7 +48,7 @@ raijin:
   name: raijin
   host_pattern: ^raijin|(r\d+$)
   extras: /g/data3/gx8/extras
-  pcgr_dir: /g/data3/gx8/extras/umccrise/pcgr/data
+  pcgr_data: /g/data3/gx8/extras/pcgr/data
   cluster:
     jobscript: /g/data3/gx8/extras/umccrise/src/hpc_utils/hpc_utils/jobscript_raijin.sh
     submit_cmd: qsub -P gx8 -q normalsp -l wd -N {job_name} -o {log_file} -j oe -l
@@ -128,6 +128,7 @@ travis:
   cluster: null
   barcodes_10x: ''
   genomes:
+    # TODO re-structure this to replicate bcbio genomes structure, to support --bcbio-genomes for testing on new machines
     GRCh37:  # for umccrise tests
       fa: ../../data/genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir: ../../data/genomes/GRCh37/panel_of_normals
