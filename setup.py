@@ -1,23 +1,28 @@
 #!/usr/bin/env python
 from setuptools import setup
-from ngs_utils import setup_utils
+import releazit
 
-name = 'hpc_utils'
+import hpc_utils
+pkg = hpc_utils.__name__
 
-version = setup_utils.get_cur_version(name)
+version = releazit.get_version(pkg)
 
 setup(
-    name=name,
+    name=pkg,
     version=version,
-    author='UMCCR',
+    author='Vlad Saveliev',
+    author_email='vladislav.sav@gmail.com',
     description='Cluster utils and paths to the reference data in UMCCR servers',
     keywords='bioinformatics',
+    url='https://github.com/umccr/' + pkg,
     license='GPLv3',
     packages=[
-        name,
+        pkg,
     ],
     package_data={
-        name: setup_utils.find_package_files('', name),
+        pkg: releazit.find_package_files('', pkg),
     },
     include_package_data=True,
+    zip_safe=False,
+    install_requires=releazit.get_reqs(),
 )

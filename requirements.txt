@@ -1,3 +1,4 @@
 pip
 setuptools
-ngs_utils>=2.3.16
+ngs_utils
+releazit
