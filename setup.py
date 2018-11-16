@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 from setuptools import setup
-import releazit
+import versionpy
 
 import hpc_utils
 pkg = hpc_utils.__name__
 
-version = releazit.get_version(pkg)
+version = versionpy.get_version(pkg)
 
 setup(
     name=pkg,
@@ -20,9 +20,9 @@ setup(
         pkg,
     ],
     package_data={
-        pkg: releazit.find_package_files('', pkg),
+        pkg: versionpy.find_package_files('', pkg),
     },
     include_package_data=True,
     zip_safe=False,
-    install_requires=releazit.get_reqs(),
+    install_requires=versionpy.get_reqs(),
 )
