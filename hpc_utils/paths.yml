@@ -90,30 +90,30 @@ raijin:
 vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
-  extras: /Users/vsaveliev/bio/extras
+  extras: /bio/extras
   pcgr_data: /Users/vsaveliev/git/pcgr/data
   cluster:
     submit_cmd: eval
-  barcodes_10x: /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
+  barcodes_10x: /bio/reference_data/4M-with-alts-february-2016.txt
   genomes:
     GRCh37:
-      fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
+      fa: /bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
-      gnomad: /Users/vsaveliev/bio/extras/gnomad_genome.GRCh37.vcf.gz
+      panel_of_normals_dir: /bio/reference_data/panel_of_normals/GRCh37
+      gnomad: /bio/extras/gnomad_genome.GRCh37.vcf.gz
       truth_sets:
         mb:
-          vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
+          vcf: /bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
         colo:
-          vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/COLO/truth_small_variants.vcf.gz
+          vcf: /bio/reference_data/genomes/Hsapiens/GRCh37/COLO/truth_small_variants.vcf.gz
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
     hg38:
-      fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
+      fa: /bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
