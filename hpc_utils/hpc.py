@@ -74,10 +74,9 @@ def get_ref_file(path_or_genome, key='fa', loc=None, must_exist=True):
                      f' and no keys {", ".join(keys)} for genome "{path_or_genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
-    if '{g}' in path:
-        fa = g_d['fa']
-        g_basedir = abspath(join(dirname(fa), pardir))
-        path = path.format(g=g_basedir)
+    fa = g_d['fa']
+    g_basedir = abspath(join(dirname(fa), pardir))
+    path = path.format(g=g_basedir, extras=loc.extras)
     path = abspath(path)
     if must_exist and not exists(path):
         critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{path_or_genome}"')

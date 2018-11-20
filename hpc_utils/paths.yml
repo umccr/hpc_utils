@@ -12,8 +12,8 @@ spartan:
       fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /data/cephfs/punim0010/extras/panel_of_normals
-      gnomad: '{g}/variation/gnomad_genome.vcf.gz'
+      panel_of_normals_dir: '{extras}/panel_of_normals'
+      gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         mb:
           vcf: /data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz
@@ -32,8 +32,8 @@ spartan:
       fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
       bwa: '{g}/bwa/hg38.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /data/cephfs/punim0010/extras/panel_of_normals/hg38
-      gnomad: '{g}/variation/gnomad_genome.vcf.gz'
+      panel_of_normals_dir: '{extras}/panel_of_normals/hg38'
+      gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         dream:
           vcf: '{g}/validation/dream-syn3/truth_small_variants.vcf.gz'
@@ -63,7 +63,8 @@ raijin:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /g/data3/gx8/extras/panel_of_normals
+      panel_of_normals_dir: '{extras}/panel_of_normals'
+      gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
@@ -76,7 +77,8 @@ raijin:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
       bwa: '{g}/bwa/hg38.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /g/data3/gx8/extras/panel_of_normals/hg38
+      panel_of_normals_dir: '{extras}/panel_of_normals/hg38'
+      gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
@@ -100,8 +102,8 @@ vlad:
       fa: /bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /bio/reference_data/panel_of_normals/GRCh37
-      gnomad: /bio/extras/gnomad_genome.GRCh37.vcf.gz
+      panel_of_normals_dir: '/bio/reference_data/panel_of_normals/GRCh37'
+      gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         mb:
           vcf: /bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
@@ -115,6 +117,8 @@ vlad:
     hg38:
       fa: /bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
+      panel_of_normals_dir: '/bio/reference_data/panel_of_normals/hg38'
+      gnomad: '{extras}/gnomad_genome.vcf.gz'
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
     test-GRCh37:
