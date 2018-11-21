@@ -7,12 +7,13 @@ spartan:
     submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
   barcodes_10x: /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+  hg19ToHg38: /data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz
   genomes:
     GRCh37:
       fa: /data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: '{extras}/panel_of_normals'
+      panel_of_normals_dir: '{extras}/panel_of_normals/GRCh37'
       gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         mb:
@@ -58,12 +59,13 @@ raijin:
     submit_cmd: qsub -P gx8 -q normalsp -l wd -N {job_name} -o {log_file} -j oe -l
       walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
   barcodes_10x: /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+  hg19ToHg38: /g/data3/gx8/extras/hg19ToHg38.over.chain.gz
   genomes:
     GRCh37:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: '{extras}/panel_of_normals'
+      panel_of_normals_dir: '{extras}/panel_of_normals/GRCh37'
       gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         giab:
@@ -86,8 +88,8 @@ raijin:
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
   ensembl_dir: /g/data3/gx8/extras/ensembl
-  vep_data: /g/data3/gx8/extras/ensembl/vep_data
-  iedb_dir: /g/data3/gx8/extras/iedb
+  vep_data:    /g/data3/gx8/extras/ensembl/vep_data
+  iedb_dir:    /g/data3/gx8/extras/iedb
 
 vlad:
   name: vlad
@@ -97,6 +99,7 @@ vlad:
   cluster:
     submit_cmd: eval
   barcodes_10x: /bio/reference_data/4M-with-alts-february-2016.txt
+  hg19ToHg38: /bio/extras/hg19ToHg38.over.chain.gz
   genomes:
     GRCh37:
       fa: /bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
