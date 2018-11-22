@@ -94,33 +94,33 @@ raijin:
 vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
-  extras: /bio/extras
+  extras: /Users/vsaveliev/bio/extras
   pcgr_data: /Users/vsaveliev/git/pcgr/data
   cluster:
     submit_cmd: eval
-  barcodes_10x: /bio/reference_data/4M-with-alts-february-2016.txt
-  hg19ToHg38: /bio/extras/hg19ToHg38.over.chain.gz
+  barcodes_10x: /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
+  hg19ToHg38: /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
   genomes:
     GRCh37:
-      fa: /bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
+      fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: '/bio/reference_data/panel_of_normals/GRCh37'
+      panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
       gnomad: '{extras}/gnomad_genome.vcf.gz'
       truth_sets:
         mb:
-          vcf: /bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
+          vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
         colo:
-          vcf: /bio/reference_data/genomes/Hsapiens/GRCh37/COLO/truth_small_variants.vcf.gz
+          vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/COLO/truth_small_variants.vcf.gz
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
     hg38:
-      fa: /bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
+      fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: '/bio/reference_data/panel_of_normals/hg38'
+      panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/hg38
       gnomad: '{extras}/gnomad_genome.vcf.gz'
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
