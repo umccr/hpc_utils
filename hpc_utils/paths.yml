@@ -14,7 +14,7 @@ spartan:
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/GRCh37'
-      gnomad: '{extras}/gnomad_genome.vcf.gz'
+      gnomad: /data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/variation/gnomad_genome.vcf.gz
       truth_sets:
         mb:
           vcf: /data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz
@@ -34,7 +34,7 @@ spartan:
       bwa: '{g}/bwa/hg38.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/hg38'
-      gnomad: '{extras}/gnomad_genome.vcf.gz'
+      gnomad: /data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/hg38/variation/gnomad_genome.vcf.gz
       truth_sets:
         dream:
           vcf: '{g}/validation/dream-syn3/truth_small_variants.vcf.gz'
@@ -66,7 +66,7 @@ raijin:
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/GRCh37'
-      gnomad: '{extras}/gnomad_genome.vcf.gz'
+      gnomad: '{extras}/gnomad_genome.GRCh37.vcf.gz'
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
@@ -80,7 +80,7 @@ raijin:
       bwa: '{g}/bwa/hg38.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/hg38'
-      gnomad: '{extras}/gnomad_genome.vcf.gz'
+      gnomad: '{extras}/gnomad_genome.hg38.vcf.gz'
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
