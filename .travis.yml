@@ -20,10 +20,10 @@ before_install:
 
 install:
   # Setting up channels and install dependencies
-  - conda config --add channels defaults --add channels vladsaveliev --add channels bioconda --add channels conda-forge
+  - conda config --add channels vladsaveliev --add channels bioconda --add channels conda-forge
   - conda install -q python=$TRAVIS_PYTHON_VERSION pip requests conda-build jinja2 anaconda-client ngs_utils
   # Building package
-  - conda build deploy/conda_package/${PACKAGE_NAME}
+  - conda build deploy/conda_pkg/${PACKAGE_NAME}
   - conda install --use-local ${PACKAGE_NAME}
 
 script:
@@ -32,7 +32,8 @@ script:
 deploy:
   # Deploy to Anaconda.org
   - provider: script
-    script: ./deploy/deploy_anaconda.sh $PACKAGE_NAME $ANACONDA_TOKEN
+    script: conda convert --platform osx-64 $HOME/miniconda/conda-bld/linux-64/${PACKAGE_NAME}-*.tar.bz2 --output-dir $HOME/miniconda/conda-bld/ &&
+            anaconda -t ${ANACONDA_TOKEN} upload $HOME/miniconda/conda-bld/**/${PACKAGE_NAME}-*.tar.bz2
     on:
       tags: true
     skip_cleanup: true
