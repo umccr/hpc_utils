@@ -2,7 +2,7 @@ spartan:
   name: spartan
   host_pattern: spartan*
   extras: /data/cephfs/punim0010/extras
-  pcgr_data: /data/cephfs/punim0010/extras/pcgr/data
+  pcgr_data: /data/cephfs/punim0010/extras/umccrise/data
   cluster:
     submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
