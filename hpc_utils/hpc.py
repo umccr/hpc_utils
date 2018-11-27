@@ -71,7 +71,7 @@ def get_ref_file(path_or_genome, key='fa', loc=None, must_exist=True):
         path = path.get(k)
         if not path:
             critical(f'hpc.py: {path_or_genome} is not found as file at {os.getcwd()},'
-                     f' and no keys {", ".join(keys)} for genome "{path_or_genome}"'
+                     f' and no keys "{", ".join(keys)}" for genome "{path_or_genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
     fa = g_d['fa']

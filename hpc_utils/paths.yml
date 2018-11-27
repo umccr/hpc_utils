@@ -166,6 +166,7 @@ umccrise_docker:
     GRCh37:
       fa: /genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir: /genomes/GRCh37/panel_of_normals
+      gnomad: /genomes/GRCh37/gnomad_genome.vcf.gz
       truth_sets:
         giab:
           bed: /genomes/GRCh37/truth_regions.bed
@@ -174,6 +175,7 @@ umccrise_docker:
     hg38:
       fa: /genomes/hg38/hg38.fa
       panel_of_normals_dir: /genomes/hg38/panel_of_normals
+      gnomad: /genomes/GRCh37/gnomad_genome.vcf.gz
       truth_sets:
         giab:
           bed: /genomes/hg38/truth_regions.bed
