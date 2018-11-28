@@ -2,7 +2,8 @@ spartan:
   name: spartan
   host_pattern: spartan*
   extras: /data/cephfs/punim0010/extras
-  pcgr_data: /data/cephfs/punim0010/extras/umccrise/data
+  pcgr_data: /data/cephfs/punim0010/extras/umccrise/pcgr/data
+  cacao_data: /data/cephfs/punim0010/extras/umccrise/cacao/data
   cluster:
     submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
@@ -15,6 +16,7 @@ spartan:
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/GRCh37'
       gnomad: /data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/variation/gnomad_genome.vcf.gz
+      tricky: '{extras}/GRCh37_tricky.bed.gz'
       truth_sets:
         mb:
           vcf: /data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz
@@ -35,6 +37,7 @@ spartan:
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/hg38'
       gnomad: /data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/hg38/variation/gnomad_genome.vcf.gz
+      tricky: '{extras}/hg38_tricky.bed.gz'
       truth_sets:
         dream:
           vcf: '{g}/validation/dream-syn3/truth_small_variants.vcf.gz'
@@ -49,7 +52,8 @@ raijin:
   name: raijin
   host_pattern: ^raijin|(r\d+$)
   extras: /g/data3/gx8/extras
-  pcgr_data: /g/data3/gx8/extras/pcgr/data
+  pcgr_data:  /g/data3/gx8/extras/umccrise/pcgr/data
+  cacao_data: /g/data3/gx8/extras/umccrise/cacao/data
   cluster:
     jobscript: |
       #!/bin/sh
@@ -67,6 +71,7 @@ raijin:
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/GRCh37'
       gnomad: '{extras}/gnomad_genome.GRCh37.vcf.gz'
+      tricky: '{extras}/GRCh37_tricky.bed.gz'
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
@@ -81,6 +86,7 @@ raijin:
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: '{extras}/panel_of_normals/hg38'
       gnomad: '{extras}/gnomad_genome.hg38.vcf.gz'
+      tricky: '{extras}/hg38_tricky.bed.gz'
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
@@ -95,7 +101,8 @@ vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
   extras: /Users/vsaveliev/bio/extras
-  pcgr_data: /Users/vsaveliev/git/pcgr/data
+  pcgr_data:  /Users/vsaveliev/git/pcgr/data
+  cacao_data: /Users/vsaveliev/git/cacao/data
   cluster:
     submit_cmd: eval
   barcodes_10x: /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
@@ -106,7 +113,8 @@ vlad:
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
-      gnomad: '{extras}/gnomad_genome.vcf.gz'
+      gnomad: '{extras}/gnomad.exomes.GRCh37.CUT.vcf.gz'
+      tricky: '{extras}/GRCh37_tricky.bed.gz'
       truth_sets:
         mb:
           vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
@@ -121,7 +129,6 @@ vlad:
       fa: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/seq/hg38.fa
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/hg38
-      gnomad: '{extras}/gnomad_genome.vcf.gz'
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
     test-GRCh37:
@@ -148,6 +155,7 @@ travis:
           bed: ../../data/genomes/GRCh37/truth_regions.bed
       purple_gc:  ../../data/genomes/GRCh37/GC_profile.1000bp.cnp
       purple_het: ../../data/genomes/GRCh37/germline_het_pon.bed.gz
+      tricky: ../../data/genomes/GRCh37/GRCh37_tricky.bed.gz
     test-GRCh37:  # for vcf_stuff tests
       fa: tests/data/test-GRCh37.fa
       panel_of_normals_dir: tests/data/panel_of_normals
@@ -161,23 +169,25 @@ umccrise_docker:
   extras: ''
   cluster: null
   barcodes_10x: ''
-  pcgr_data: /genomes/pcgr/data
+  pcgr_data:      /genomes/pcgr/data
   genomes:
     GRCh37:
-      fa: /genomes/GRCh37/GRCh37.fa
+      fa:         /genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir: /genomes/GRCh37/panel_of_normals
-      gnomad: /genomes/GRCh37/gnomad_genome.vcf.gz
+      gnomad:     /genomes/GRCh37/gnomad_genome.vcf.gz
       truth_sets:
         giab:
-          bed: /genomes/GRCh37/truth_regions.bed
+          bed:    /genomes/GRCh37/truth_regions.bed
       purple_gc:  /genomes/GRCh37/GC_profile.1000bp.cnp
       purple_het: /genomes/GRCh37/germline_het_pon.bed.gz
+      tricky:     /genomes/GRCh37/GRCh37_tricky.bed.gz
     hg38:
-      fa: /genomes/hg38/hg38.fa
+      fa:         /genomes/hg38/hg38.fa
       panel_of_normals_dir: /genomes/hg38/panel_of_normals
-      gnomad: /genomes/GRCh37/gnomad_genome.vcf.gz
+      gnomad:     /genomes/hg38/gnomad_genome.vcf.gz
       truth_sets:
         giab:
-          bed: /genomes/hg38/truth_regions.bed
+          bed:    /genomes/hg38/truth_regions.bed
       purple_gc:  /genomes/hg38/GC_profile.1000bp.cnp
       purple_het: /genomes/hg38/germline_het_pon.bed.gz
+      tricky:     /genomes/hg38/hg38_tricky.bed.gz
