@@ -143,6 +143,7 @@ travis:
   host_pattern: ^travis-
   extras: ''
   pcgr_data: ''
+  cacao_data: ''
   cluster: null
   barcodes_10x: ''
   genomes:
@@ -170,6 +171,7 @@ umccrise_docker:
   cluster: null
   barcodes_10x: ''
   pcgr_data:      /genomes/pcgr/data
+  cacao_data:     /genomes/cacao/data
   genomes:
     GRCh37:
       fa:         /genomes/GRCh37/GRCh37.fa
