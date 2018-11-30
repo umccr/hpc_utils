@@ -131,6 +131,7 @@ vlad:
       panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/hg38
       purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
       purple_het: '{g}/variation/germline_het_pon.bed.gz'
+      tricky: '{extras}/hg38_tricky.bed.gz'
     test-GRCh37:
       fa: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa
       panel_of_normals_dir: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals
