@@ -49,29 +49,32 @@ def get_loc():
         critical(f'hpc.py: could not detect location by hostname {hostname}')
 
 
-def ref_file_exists(path_or_genome, key='fa', loc=None):
+def ref_file_exists(genome, key='fa', loc=None, path=None):
     try:
-        return get_ref_file(path_or_genome, key, loc)
+        return get_ref_file(genome, key, loc, path=path)
     except:
         return False
 
 
-def get_ref_file(path_or_genome, key='fa', loc=None, must_exist=True):
+def get_ref_file(genome=None, key='fa', loc=None, path=None, must_exist=True):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
-    if exists(path_or_genome):
-        return abspath(path_or_genome)
+    if path:
+        if exists(path):
+            return abspath(path)
+        else:
+            critical(f'hpc.py: {path} is not found as file at {os.getcwd()}')
 
     loc = loc or get_loc()
-    g_d = get_genomes_d(path_or_genome, loc)
+    g_d = get_genomes_d(genome, loc)
 
     path = g_d
     keys = key if not isinstance(key, str) else [key]
     for k in keys:
         path = path.get(k)
         if not path:
-            critical(f'hpc.py: {path_or_genome} is not found as file at {os.getcwd()},'
-                     f' and no keys "{", ".join(keys)}" for genome "{path_or_genome}"'
+            critical(f'hpc.py: {genome} is not found as file at {os.getcwd()},'
+                     f' and no keys "{", ".join(keys)}" for genome "{genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
     fa = g_d['fa']
@@ -79,7 +82,7 @@ def get_ref_file(path_or_genome, key='fa', loc=None, must_exist=True):
     path = path.format(g=g_basedir, extras=loc.extras)
     path = abspath(path)
     if must_exist and not exists(path):
-        critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{path_or_genome}"')
+        critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{genome}"')
     return path
 
 
