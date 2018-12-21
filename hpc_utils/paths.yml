@@ -119,7 +119,7 @@ vlad:
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
       gnomad: '{extras}/gnomad.exomes.GRCh37.CUT.vcf.gz'
-      tricky: '{extras}/GRCh37_tricky.bed.gz'
+      problem_regions_dir: '{g}/coverage/problem_regions'
       truth_sets:
         mb:
           vcf: /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/ICGC_MB/truth_small_variants.vcf.gz
