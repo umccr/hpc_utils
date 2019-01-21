@@ -1,6 +1,7 @@
 spartan:
   name: spartan
   host_pattern: spartan*
+  threads_on_node: 32
   extras: /data/cephfs/punim0010/extras
   pcgr_data:  /data/cephfs/punim0010/extras/umccrise/genomes/pcgr/data
   cacao_data: /data/cephfs/punim0010/extras/umccrise/genomes/cacao/data
@@ -53,6 +54,7 @@ spartan:
 raijin:
   name: raijin
   host_pattern: ^raijin|(r\d+$)
+  threads_on_node: 28
   extras: /g/data3/gx8/extras
   pcgr_data:  /g/data3/gx8/extras/umccrise/pcgr/data
   cacao_data: /g/data3/gx8/extras/umccrise/cacao/data
@@ -105,6 +107,7 @@ raijin:
 vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
+  threads_on_node: 1
   extras: /Users/vsaveliev/bio/extras
   pcgr_data:  /Users/vsaveliev/git/pcgr/data
   cacao_data: /Users/vsaveliev/git/cacao/data
@@ -150,6 +153,7 @@ vlad:
 travis:
   name: travis
   host_pattern: ^travis-
+  threads_on_node: 1
   extras: ''
   pcgr_data: ''
   cacao_data: ''
@@ -176,6 +180,7 @@ travis:
 umccrise_docker:
   name: umccrise_docker
   host_pattern: ^umccrise_docker$
+  threads_on_node: 1
   extras: ''
   cluster: null
   barcodes_10x: ''
