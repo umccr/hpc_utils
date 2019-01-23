@@ -16,8 +16,8 @@ spartan:
       bwa: '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa'
       gtf: '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/panel_of_normals
-      gnomad: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/gnomad_genome.vcf.gz
-      problem_regions_dir: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/problem_regions
+      gnomad:               /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/gnomad_genome.vcf.gz
+      problem_regions_dir:  /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/problem_regions
       truth_sets:
         mb:
           vcf: '/data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz'
@@ -30,8 +30,8 @@ spartan:
         colo:
           vcf: '/data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz'
       ema: '/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37'
-      purple_gc:  /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/GC_profile.1000bp.cnp
-      purple_het: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/germline_het_pon.bed.gz
+      purple_gc:       /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/GC_profile.1000bp.cnp
+      purple_het:      /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/germline_het_pon.bed.gz
       hmf_hotspot:     /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/Hotspot.tsv.gz
       hmf_giab_conf:   /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
@@ -73,20 +73,20 @@ raijin:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/seq/GRCh37.fa
       bwa: '{g}/bwa/GRCh37.fa'
       gtf: '{g}/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: '{extras}/umccrise/genomes/GRCh37/panel_of_normals'
-      gnomad:               '{extras}/umccrise/genomes/GRCh37/gnomad_genome.vcf.gz'
-      problem_regions_dir:  '{extras}/umccrise/genomes/GRCh37/problem_regions'
+      panel_of_normals_dir: /g/data3/gx8/extras/umccrise/genomes/GRCh37/panel_of_normals
+      gnomad:               /g/data3/gx8/extras/umccrise/genomes/GRCh37/gnomad_genome.vcf.gz
+      problem_regions_dir:  /g/data3/gx8/extras/umccrise/genomes/GRCh37/problem_regions
       truth_sets:
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: '{g}/validation/giab-NA12878/truth_regions.bed'
         colo:
           vcf: /g/data3/gx8/extras/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
-      purple_gc:  '{g}/coverage/gc/GC_profile.1000bp.cnp'
-      purple_het: '{g}/variation/germline_het_pon.bed.gz'
-      hmf_hotspot:     '{extras}/umccrise/genomes/GRCh37/hmf/Hotspot.tsv.gz'
-      hmf_giab_conf:   '{extras}/umccrise/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz'
-      hmf_mappability: '{extras}/umccrise/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz'
+      purple_gc:       /g/data3/gx8/extras/umccrise/genomes/GRCh37/GC_profile.1000bp.cnp
+      purple_het:      /g/data3/gx8/extras/umccrise/genomes/GRCh37/germline_het_pon.bed.gz
+      hmf_hotspot:     /g/data3/gx8/extras/umccrise/genomes/GRCh37/hmf/Hotspot.tsv.gz
+      hmf_giab_conf:   /g/data3/gx8/extras/umccrise/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability: /g/data3/gx8/extras/umccrise/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
     hg38:
       fa: /g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/seq/hg38.fa
       bwa: '{g}/bwa/hg38.fa'
