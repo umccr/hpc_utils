@@ -20,15 +20,17 @@ spartan:
       problem_regions_dir:  /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/problem_regions
       truth_sets:
         mb:
-          vcf: '/data/cephfs/punim0010/data/External/Reference/ICGC_MB/MB-benchmark.vcf.gz'
+          vcf: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/MB-benchmark.vcf.gz
         dream:
           vcf: '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_small_variants.vcf.gz'
           bed: '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_regions.bed'
         giab:
           vcf: '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/truth_regions.bed
-        colo:
-          vcf: '/data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz'
+        colo:  # from /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set
+          vcf: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+        colo_illumina:
+          vcf: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
       ema: '/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37'
       purple_gc:       /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:      /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/germline_het_pon.bed.gz
@@ -58,8 +60,8 @@ raijin:
   host_pattern: ^raijin|(r\d+$)
   threads_on_node: 28
   extras:     /g/data3/gx8/extras
-  pcgr_data:  /g/data3/gx8/extras/umccrise/pcgr/data
-  cacao_data: /g/data3/gx8/extras/umccrise/cacao/data
+  pcgr_data:  /g/data3/gx8/extras/umccrise/genomes/pcgr/data
+  cacao_data: /g/data3/gx8/extras/umccrise/genomes/cacao/data
   cluster:
     jobscript: |
       #!/bin/sh
@@ -79,11 +81,15 @@ raijin:
       gnomad:               /g/data3/gx8/extras/umccrise/genomes/GRCh37/gnomad_genome.vcf.gz
       problem_regions_dir:  /g/data3/gx8/extras/umccrise/genomes/GRCh37/problem_regions
       truth_sets:
+        mb:
+          vcf: /g/data3/gx8/extras/umccrise/genomes/GRCh37/MB-benchmark.vcf.gz
         giab:
           vcf: '{g}/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed: /g/data3/gx8/extras/umccrise/genomes/GRCh37/truth_regions.bed
         colo:
-          vcf: /g/data3/gx8/extras/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+          vcf: /g/data3/gx8/extras/umccrise/genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+        colo_illumina:
+          vcf: /g/data3/gx8/extras/umccrise/genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
       purple_gc:       /g/data3/gx8/extras/umccrise/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:      /g/data3/gx8/extras/umccrise/genomes/GRCh37/hmf/germline_het_pon.bed.gz
       hmf_hotspot:     /g/data3/gx8/extras/umccrise/genomes/GRCh37/hmf/KnownHotspots.tsv.gz
