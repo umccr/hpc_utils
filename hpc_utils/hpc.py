@@ -38,6 +38,7 @@ def find_loc():
         for l in loc_by_name.values():
             if re.match(l.host_pattern, hostname):
                 loc = l
+
     return loc
 
 
@@ -56,7 +57,7 @@ def ref_file_exists(genome, key='fa', loc=None, path=None):
         return False
 
 
-def get_ref_file(genome=None, key='fa', loc=None, path=None, must_exist=True):
+def get_ref_file(genome='all', key='fa', loc=None, path=None, must_exist=True):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
     if path:
@@ -83,7 +84,7 @@ def get_ref_file(genome=None, key='fa', loc=None, path=None, must_exist=True):
         path = path.format(g=g_basedir, extras=loc.extras)
         path = abspath(path)
     elif path.startswith('genomes'):
-        path = abspath(join(find_genomes_dir(loc), path))
+        path = abspath(join(find_genomes_dir(loc), pardir, path))
 
     if must_exist and not exists(path):
         critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{genome}"')

@@ -8,9 +8,10 @@ spartan:
   extras:                   /data/cephfs/punim0010/extras
   barcodes_10x:             /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   hg19ToHg38:               /data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz
-  pcgr_data:                genomes/pcgr/data
-  cacao_data:               genomes/cacao/data
   genomes:
+    all:
+      pcgr_data:            genomes/pcgr/data
+      cacao_data:           genomes/cacao/data
     GRCh37:
       fa:                   genomes/GRCh37/GRCh37.fa
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
@@ -70,9 +71,10 @@ raijin:
   extras:                    /g/data3/gx8/extras
   barcodes_10x:              /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   hg19ToHg38:                /g/data3/gx8/extras/hg19ToHg38.over.chain.gz
-  pcgr_data:                 genomes/pcgr/data
-  cacao_data:                genomes/cacao/data
   genomes:
+    all:
+      pcgr_data:             genomes/pcgr/data
+      cacao_data:            genomes/cacao/data
     GRCh37:
       fa:                    genomes/GRCh37/GRCh37.fa
       bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
@@ -121,9 +123,10 @@ vlad:
   extras:                   /Users/vsaveliev/bio/extras
   barcodes_10x:             /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
   hg19ToHg38:               /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
-  pcgr_data:                /Users/vsaveliev/git/pcgr/data
-  cacao_data:               /Users/vsaveliev/git/cacao/data
   genomes:
+    all:
+      pcgr_data:            /Users/vsaveliev/git/pcgr/data
+      cacao_data:           /Users/vsaveliev/git/cacao/data
     GRCh37:
       fa:                   /Users/vsaveliev/bio/genomes/GRCh37/GRCh37.fa
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
@@ -165,11 +168,12 @@ travis:
   host_pattern: ^travis-
   threads_on_node: 1
   extras: ''
-  pcgr_data: ''
-  cacao_data: ''
   cluster: null
   barcodes_10x: ''
   genomes:
+    all:
+      pcgr_data:            ''
+      cacao_data:           ''
     # TODO re-structure this to replicate bcbio genomes structure, to support --bcbio-genomes for testing on new machines
     GRCh37:  # for umccrise tests
       fa:                   ../../data/genomes/GRCh37/GRCh37.fa
@@ -198,9 +202,10 @@ umccrise_docker:
   extras: ''
   cluster: null
   barcodes_10x: ''
-  pcgr_data:                /genomes/pcgr/data
-  cacao_data:               /genomes/cacao/data
   genomes:
+    all:
+      pcgr_data:            /genomes/pcgr/data
+      cacao_data:           /genomes/cacao/data
     GRCh37:
       fa:                   /genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir: /genomes/GRCh37/panel_of_normals
