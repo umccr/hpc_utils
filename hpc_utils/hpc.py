@@ -1,5 +1,5 @@
 import os
-from os.path import join, abspath, dirname, pardir, isfile, exists
+from os.path import join, abspath, dirname, pardir, isfile, exists, isdir
 import re
 import sys
 import yaml
@@ -77,10 +77,14 @@ def get_ref_file(genome=None, key='fa', loc=None, path=None, must_exist=True):
                      f' and no keys "{", ".join(keys)}" for genome "{genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
 
-    fa = g_d['fa']
-    g_basedir = abspath(join(dirname(fa), pardir))
-    path = path.format(g=g_basedir, extras=loc.extras)
-    path = abspath(path)
+    if path.startswith('/'):
+        fa = g_d['fa']
+        g_basedir = abspath(join(dirname(fa), pardir))
+        path = path.format(g=g_basedir, extras=loc.extras)
+        path = abspath(path)
+    elif path.startswith('genomes'):
+        path = abspath(join(find_genomes_dir(loc), path))
+
     if must_exist and not exists(path):
         critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{genome}"')
     return path
@@ -91,3 +95,30 @@ def get_genomes_d(genome, loc=None):
     if genome not in loc.genomes:
         critical(f'hpc.py: genome {genome} not found for host "{loc.name}". Available: {", ".join(loc.genomes)}')
     return loc.genomes[genome]
+
+
+def find_genomes_dir(loc):
+    tried = []
+
+    try:
+        from umccrise import package_path as um_path
+    except:
+        pass
+    else:
+        gd = abspath(join(um_path(), pardir, 'genomes'))
+        if isdir(gd):
+            return gd
+        tried.append(f'umccrsie package parent folder ({gd}')
+
+    gd = abspath(join(package_path(), pardir, 'genomes'))
+    if isdir(gd):
+        return gd
+    tried.append(f'hpc_utils package parent folder ({gd}')
+
+    if loc is not None:
+        gd = join(loc.extras, 'umccrise', 'genomes')
+        if isdir(gd):
+            return gd
+        tried.append(f'extras/umccrise location ({gd})')
+
+    critical('Cannot find "genomes" Folder. Tried: ' + ', '.join(tried))
