@@ -8,19 +8,19 @@ spartan:
   extras:                   /data/cephfs/punim0010/extras
   barcodes_10x:             /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   hg19ToHg38:               /data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz
-  pcgr_data:                /data/cephfs/punim0010/extras/umccrise/genomes/pcgr/data
-  cacao_data:               /data/cephfs/punim0010/extras/umccrise/genomes/cacao/data
+  pcgr_data:                genomes/pcgr/data
+  cacao_data:               genomes/cacao/data
   genomes:
     GRCh37:
-      fa:                   /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/GRCh37.fa
+      fa:                   genomes/GRCh37/GRCh37.fa
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/panel_of_normals
-      gnomad:               /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/gnomad_genome.vcf.gz
-      problem_regions_dir:  /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/problem_regions
+      panel_of_normals_dir: genomes/GRCh37/panel_of_normals
+      gnomad:               genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
+      problem_regions_dir:  genomes/GRCh37/problem_regions
       truth_sets:
         mb:
-          vcf:              /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/MB-benchmark.vcf.gz
+          vcf:              genomes/GRCh37/MB-benchmark.vcf.gz
         dream:
           vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_small_variants.vcf.gz'
           bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_regions.bed'
@@ -28,22 +28,22 @@ spartan:
           vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
         colo:               # from /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set
-          vcf:              /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+          vcf:              genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
         colo_illumina:
-          vcf:              /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
+          vcf:              genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
       ema:                 '/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37'
-      purple_gc:            /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-      purple_het:           /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:          /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/KnownHotspots.tsv.gz
-      hmf_giab_conf:        /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:      /data/cephfs/punim0010/extras/umccrise/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      purple_gc:            genomes/GRCh37/hmf/GC_profile.1000bp.cnp
+      purple_het:           genomes/GRCh37/hmf/germline_het_pon.bed.gz
+      hmf_hotspot:          genomes/GRCh37/hmf/KnownHotspots.tsv.gz
+      hmf_giab_conf:        genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability:      genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
     hg38:
-      fa:                   /data/cephfs/punim0010/extras/umccrise/genomes/hg38/hg38.fa
+      fa:                   genomes/hg38/hg38.fa
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
       gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /data/cephfs/punim0010/extras/umccrise/genomes/hg38/panel_of_normals
-      gnomad:               /data/cephfs/punim0010/extras/umccrise/genomes/hg38/gnomad_genome.vcf.gz
-      problem_regions_dir:  /data/cephfs/punim0010/extras/umccrise/genomes/hg38/problem_regions
+      panel_of_normals_dir: genomes/hg38/panel_of_normals
+      gnomad:               genomes/hg38/gnomad_genome.common_pass_clean.vcf.gz
+      problem_regions_dir:  genomes/hg38/problem_regions
       truth_sets:
         dream:
           vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/dream-syn3-crossmap/truth_small_variants.vcf.gz'
@@ -51,8 +51,8 @@ spartan:
         giab:
           vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_small_variants.vcf.gz'
           bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
-      purple_gc:            /data/cephfs/punim0010/extras/umccrise/genomes/hg38/hmf/GC_profile.1000bp.cnp
-      purple_het:           /data/cephfs/punim0010/extras/umccrise/genomes/hg38/hmf/germline_het_pon.bed.gz
+      purple_gc:            genomes/hg38/hmf/GC_profile.1000bp.cnp
+      purple_het:           genomes/hg38/hmf/germline_het_pon.bed.gz
 
 # sync to raijin: `rsync -rv --size-only ../../genomes/ rjn:genomes`
 raijin:
@@ -78,7 +78,7 @@ raijin:
       bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir:  genomes/GRCh37/panel_of_normals
-      gnomad:                genomes/GRCh37/gnomad_genome.vcf.gz
+      gnomad:                genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
       problem_regions_dir:   genomes/GRCh37/problem_regions
       truth_sets:
         mb:
@@ -100,7 +100,7 @@ raijin:
       bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
       gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir:  genomes/hg38/panel_of_normals
-      gnomad:                genomes/hg38/gnomad_genome.vcf.gz
+      gnomad:                genomes/hg38/gnomad_genome.common_pass_clean.vcf.gz
       problem_regions_dir:   genomes/hg38/problem_regions
       truth_sets:
         giab:
@@ -129,6 +129,7 @@ vlad:
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
+      gnomad:               /Users/vsaveliev/bio/genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
       gnomad:               /Users/vsaveliev/bio/genomes/GRCh37_small/gnomad.exomes.GRCh37.CUT.vcf.gz
       problem_regions_dir:  /Users/vsaveliev/bio/genomes/GRCh37/problem_regions
       truth_sets:
@@ -173,7 +174,7 @@ travis:
     GRCh37:  # for umccrise tests
       fa:                   ../../data/genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir: ../../data/genomes/GRCh37/panel_of_normals
-      gnomad:               ../../data/genomes/GRCh37/gnomad_genome.vcf.gz
+      gnomad:               ../../data/genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
       problem_regions_dir:  ../../data/genomes/GRCh37/problem_regions
       truth_sets:
         giab:
@@ -203,7 +204,7 @@ umccrise_docker:
     GRCh37:
       fa:                   /genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir: /genomes/GRCh37/panel_of_normals
-      gnomad:               /genomes/GRCh37/gnomad_genome.vcf.gz
+      gnomad:               /genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
       problem_regions_dir:  /genomes/GRCh37/problem_regions
       truth_sets:
         giab:
@@ -216,7 +217,7 @@ umccrise_docker:
     hg38:
       fa:                   /genomes/hg38/hg38.fa
       panel_of_normals_dir: /genomes/hg38/panel_of_normals
-      gnomad:               /genomes/hg38/gnomad_genome.vcf.gz
+      gnomad:               /genomes/hg38/gnomad_genome.common_pass_clean.vcf.gz
       problem_regions_dir:  /genomes/hg38/problem_regions
       truth_sets:
         giab:
