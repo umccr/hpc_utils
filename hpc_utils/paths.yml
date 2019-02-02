@@ -17,7 +17,7 @@ spartan:
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: genomes/GRCh37/panel_of_normals
-      gnomad:               genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
+      gnomad:               genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       problem_regions_dir:  genomes/GRCh37/problem_regions
       truth_sets:
         mb:
@@ -43,7 +43,7 @@ spartan:
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
       gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: genomes/hg38/panel_of_normals
-      gnomad:               genomes/hg38/gnomad_genome.common_pass_clean.vcf.gz
+      gnomad:               null
       problem_regions_dir:  genomes/hg38/problem_regions
       truth_sets:
         dream:
@@ -102,7 +102,7 @@ raijin:
       bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
       gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir:  genomes/hg38/panel_of_normals
-      gnomad:                genomes/hg38/gnomad_genome.common_pass_clean.vcf.gz
+      gnomad:                null
       problem_regions_dir:   genomes/hg38/problem_regions
       truth_sets:
         giab:
