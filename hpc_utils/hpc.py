@@ -50,14 +50,14 @@ def get_loc():
         critical(f'hpc.py: could not detect location by hostname {hostname}')
 
 
-def ref_file_exists(genome, key='fa', loc=None, path=None):
+def ref_file_exists(genome, key='fa', loc=None, path=None, genomes_dir=None):
     try:
-        return get_ref_file(genome, key, loc, path=path)
+        return get_ref_file(genome, key, loc, path=path, genomes_dir=genomes_dir)
     except:
         return False
 
 
-def get_ref_file(genome='all', key='fa', loc=None, path=None, must_exist=True):
+def get_ref_file(genome='all', key='fa', loc=None, path=None, must_exist=True, genomes_dir=None):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
     if path:
@@ -67,31 +67,38 @@ def get_ref_file(genome='all', key='fa', loc=None, path=None, must_exist=True):
             critical(f'hpc.py: {path} is not found as file at {os.getcwd()}')
 
     loc = loc or get_loc()
-    g_d = get_genomes_d(genome, loc)
+    g_d = get_genomes_dict(genome, loc)
 
-    path = g_d
+    d = g_d
     keys = key if not isinstance(key, str) else [key]
     for k in keys:
-        path = path.get(k)
-        if not path:
+        d = d.get(k)
+        if not d:
             critical(f'hpc.py: {genome} is not found as file at {os.getcwd()},'
-                     f' and no keys "{", ".join(keys)}" for genome "{genome}"'
+                     f' and no keys [{".".join(keys)}] for genome "{genome}"'
                      f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
+    if isinstance(d, str):
+        path = d
+    else:
+        critical(f'hpc.py: path in genomes specified by keys [{".".join(keys)}] is not full.'
+                 f'Genome: {genome}, cwd: {os.getcwd()}, host: "{loc.name}"')
 
+    # Resolve found path:
     if path.startswith('/'):
         fa = g_d['fa']
         g_basedir = abspath(join(dirname(fa), pardir))
         path = path.format(g=g_basedir, extras=loc.extras)
         path = abspath(path)
     elif path.startswith('genomes'):
-        path = abspath(join(find_genomes_dir(loc), pardir, path))
+        genomes_dir = genomes_dir or find_genomes_dir(loc)
+        path = abspath(join(genomes_dir, pardir, path))
 
     if must_exist and not exists(path):
         critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{genome}"')
     return path
 
 
-def get_genomes_d(genome, loc=None):
+def get_genomes_dict(genome, loc=None):
     loc = loc or get_loc()
     if genome not in loc.genomes:
         critical(f'hpc.py: genome {genome} not found for host "{loc.name}". Available: {", ".join(loc.genomes)}')

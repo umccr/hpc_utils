@@ -29,7 +29,7 @@
 >>> get_ref_file(run.genome_build, ['truth_sets', 'giab', 'bed'])
 '/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
 
->>> get_genomes_d('GRCh37')['truth_sets']['giab']['bed']
+>>> get_genomes_dict('GRCh37')['truth_sets']['giab']['bed']
 '/data/cephfs/punim0010/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
 ```
 
