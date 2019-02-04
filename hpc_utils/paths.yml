@@ -131,7 +131,7 @@ vlad:
       fa:                   /Users/vsaveliev/bio/genomes/GRCh37/GRCh37.fa
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
-      panel_of_normals_dir: /Users/vsaveliev/bio/reference_data/panel_of_normals/GRCh37
+      panel_of_normals_dir: /Users/vsaveliev/bio/genomes/GRCh37/panel_of_normals
       gnomad:               /Users/vsaveliev/bio/genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
       gnomad:               /Users/vsaveliev/bio/genomes/GRCh37_small/gnomad.exomes.GRCh37.CUT.vcf.gz
       problem_regions_dir:  /Users/vsaveliev/bio/genomes/GRCh37/problem_regions
@@ -152,7 +152,7 @@ vlad:
       fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa'
       gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
-#      panel_of_normals_dir: /Users/vsaveliev/bio/genomes/hg38/panel_of_normals
+      panel_of_normals_dir: /Users/vsaveliev/bio/genomes/hg38/panel_of_normals
       problem_regions_dir:  /Users/vsaveliev/bio/genomes/hg38/problem_regions
       purple_gc:            /Users/vsaveliev/bio/genomes/hg38/hmf/GC_profile.1000bp.cnp
       purple_het:           /Users/vsaveliev/bio/genomes/hg38/hmf/germline_het_pon.bed.gz

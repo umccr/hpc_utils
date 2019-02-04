@@ -84,12 +84,7 @@ def get_ref_file(genome='all', key='fa', loc=None, path=None, must_exist=True, g
                  f'Genome: {genome}, cwd: {os.getcwd()}, host: "{loc.name}"')
 
     # Resolve found path:
-    if path.startswith('/'):
-        fa = g_d['fa']
-        g_basedir = abspath(join(dirname(fa), pardir))
-        path = path.format(g=g_basedir, extras=loc.extras)
-        path = abspath(path)
-    elif path.startswith('genomes'):
+    if path.startswith('genomes'):
         genomes_dir = genomes_dir or find_genomes_dir(loc)
         path = abspath(join(genomes_dir, pardir, path))
 
