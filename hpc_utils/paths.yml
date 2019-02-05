@@ -132,8 +132,7 @@ vlad:
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
       panel_of_normals_dir: /Users/vsaveliev/bio/genomes/GRCh37/panel_of_normals
-      gnomad:               /Users/vsaveliev/bio/genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
-      gnomad:               /Users/vsaveliev/bio/genomes/GRCh37_small/gnomad.exomes.GRCh37.CUT.vcf.gz
+      gnomad:               /Users/vsaveliev/bio/genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.vcf.gz
       problem_regions_dir:  /Users/vsaveliev/bio/genomes/GRCh37/problem_regions
       truth_sets:
         mb:
