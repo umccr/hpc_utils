@@ -38,6 +38,7 @@ spartan:
       hmf_hotspot:          genomes/GRCh37/hmf/KnownHotspots.tsv.gz
       hmf_giab_conf:        genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:       genomes/GRCh37/hmf/coding_regions.canonical.sort.merged.bed
     hg38:
       fa:                   genomes/hg38/hg38.fa
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
@@ -97,6 +98,7 @@ raijin:
       hmf_hotspot:           genomes/GRCh37/hmf/KnownHotspots.tsv.gz
       hmf_giab_conf:         genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:       genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:        genomes/GRCh37/hmf/coding_regions.canonical.sort.merged.bed
     hg38:
       fa:                    genomes/hg38/hg38.fa
       bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
@@ -147,6 +149,7 @@ vlad:
       hmf_hotspot:          /Users/vsaveliev/bio/genomes/GRCh37/hmf/KnownHotspots.tsv.gz
       hmf_giab_conf:        /Users/vsaveliev/bio/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      /Users/vsaveliev/bio/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:       /Users/vsaveliev/bio/genomes/GRCh37/hmf/coding_regions.canonical.sort.merged.bed
     hg38:
       fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa'
@@ -218,6 +221,7 @@ umccrise_docker:
       hmf_hotspot:          /genomes/GRCh37/hmf/KnownHotspots.tsv.gz
       hmf_giab_conf:        /genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      /genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:       /genomes/GRCh37/hmf/coding_regions.canonical.sort.merged.bed
     hg38:
       fa:                   /genomes/hg38/hg38.fa
       panel_of_normals_dir: /genomes/hg38/panel_of_normals
