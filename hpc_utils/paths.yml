@@ -36,7 +36,7 @@ spartan:
       ema:                 '/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37'
       purple_gc:            genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:           genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:          genomes/GRCh37/hmf/KnownHotspots.tsv.gz
+      hotspots:             genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:        genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:       genomes/GRCh37/hmf/coding_regions.bed
@@ -98,7 +98,7 @@ raijin:
           vcf:               genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
       purple_gc:             genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:            genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:           genomes/GRCh37/hmf/KnownHotspots.tsv.gz
+      hotspots:              genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:         genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:       genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:        genomes/GRCh37/hmf/coding_regions.bed
@@ -147,7 +147,7 @@ vlad:
           bed:              /Users/vsaveliev/bio/genomes/GRCh37/validation/giab-NA12878/truth_regions.bed
       purple_gc:            /Users/vsaveliev/bio/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:           /Users/vsaveliev/bio/genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:          /Users/vsaveliev/bio/genomes/GRCh37/hmf/KnownHotspots.tsv.gz
+      hotspots:             /Users/vsaveliev/bio/genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:        /Users/vsaveliev/bio/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      /Users/vsaveliev/bio/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:       /Users/vsaveliev/bio/genomes/GRCh37/hmf/coding_regions.bed
@@ -188,7 +188,7 @@ travis:
           bed:              ../../data/genomes/GRCh37/truth_regions.bed
       purple_gc:            ../../data/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:           ../../data/genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:          ../../data/genomes/GRCh37/hmf/KnownHotspots.tsv.gz
+      hotspots:             ../../data/genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:        ../../data/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      ../../data/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
     test-GRCh37:  # for vcf_stuff tests
@@ -219,7 +219,7 @@ umccrise_docker:
           bed:              /genomes/GRCh37/truth_regions.bed
       purple_gc:            /genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:           /genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:          /genomes/GRCh37/hmf/KnownHotspots.tsv.gz
+      hotspots:             /genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:        /genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      /genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:       /genomes/GRCh37/hmf/coding_regions.canonical.sort.merged.bed
@@ -233,6 +233,5 @@ umccrise_docker:
           bed:              /genomes/hg38/truth_regions.bed
       purple_gc:            /genomes/hg38/hmf/GC_profile.1000bp.cnp
       purple_het:           /genomes/hg38/hmf/germline_het_pon.bed.gz
-      hmf_hotspot:          /genomes/hg38/hmf/KnownHotspots.tsv.gz
       hmf_giab_conf:        /genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      /genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
