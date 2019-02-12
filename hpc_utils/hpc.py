@@ -102,26 +102,30 @@ def get_genomes_dict(genome, loc=None):
 
 def find_genomes_dir(loc):
     tried = []
-
     try:
-        from umccrise import package_path as um_path
+        return loc.genomes_dir
     except:
-        pass
-    else:
-        gd = abspath(join(um_path(), pardir, 'genomes'))
+        tried.append(f'loc.genomes_dir in hpc_utils/paths.yaml for location {loc.name}')
+
+        try:
+            from umccrise import package_path as umccrise_path
+        except:
+            pass
+        else:
+            gd = abspath(join(umccrise_path(), pardir, 'genomes'))
+            if isdir(gd):
+                return gd
+            tried.append(f'umccrsie package parent folder ({gd})')
+
+        gd = abspath(join(package_path(), pardir, 'genomes'))
         if isdir(gd):
             return gd
-        tried.append(f'umccrsie package parent folder ({gd}')
+        tried.append(f'hpc_utils package parent folder ({gd})')
 
-    gd = abspath(join(package_path(), pardir, 'genomes'))
-    if isdir(gd):
-        return gd
-    tried.append(f'hpc_utils package parent folder ({gd}')
+        if loc is not None:
+            gd = join(loc.extras, 'umccrise', 'genomes')
+            if isdir(gd):
+                return gd
+            tried.append(f'extras/umccrise location ({gd})')
 
-    if loc is not None:
-        gd = join(loc.extras, 'umccrise', 'genomes')
-        if isdir(gd):
-            return gd
-        tried.append(f'extras/umccrise location ({gd})')
-
-    critical('Cannot find "genomes" Folder. Tried: ' + ', '.join(tried))
+        critical('Cannot find "genomes" Folder. Tried: ' + ', '.join(tried))

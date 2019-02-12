@@ -6,6 +6,7 @@ spartan:
     submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
   extras:                   /data/cephfs/punim0010/extras
+  genomes_dir:              /data/cephfs/punim0010/extras/umccrise/genomes
   barcodes_10x:             /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   hg19ToHg38:               /data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz
   genomes:
@@ -71,6 +72,7 @@ raijin:
     submit_cmd: qsub -P gx8 -q normalbw -l wd -N {job_name} -o {log_file} -j oe -l
       walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
   extras:                    /g/data3/gx8/extras
+  genomes_dir:               /g/data3/gx8/extras/umccrise/genomes
   barcodes_10x:              /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   hg19ToHg38:                /g/data3/gx8/extras/hg19ToHg38.over.chain.gz
   iedb_dir:                  /g/data3/gx8/extras/iedb
@@ -123,13 +125,14 @@ vlad:
   cluster:
     submit_cmd: eval
   extras:                   /Users/vsaveliev/bio/extras
+  genomes_dir:              /Users/vsaveliev/bio/genomes
   barcodes_10x:             /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
   hg19ToHg38:               /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
   genomes:
     all:
       pcgr_data:            /Users/vsaveliev/git/pcgr/data
       cacao_data:           /Users/vsaveliev/git/cacao/data
-      pyensembl_data:       genomes/pyensembl
+      pyensembl_data:       /Users/vsaveliev/bio/genomes/pyensembl
     GRCh37:
       fa:                   /Users/vsaveliev/bio/genomes/GRCh37/GRCh37.fa
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
