@@ -225,7 +225,7 @@ umccrise_docker:
       hotspots:             /genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:        /genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      /genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
-      coding_regions:       /genomes/GRCh37/hmf/coding_regions.canonical.sort.merged.bed
+      coding_regions:       /genomes/GRCh37/hmf/coding_regions.bed
     hg38:
       fa:                   /genomes/hg38/hg38.fa
       panel_of_normals_dir: /genomes/hg38/panel_of_normals
