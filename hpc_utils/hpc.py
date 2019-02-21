@@ -1,9 +1,10 @@
 import os
+from ngs_utils.logger import err
 from os.path import join, abspath, dirname, pardir, isfile, exists, isdir
 import re
 import sys
 import yaml
-from ngs_utils.utils import hostname
+from ngs_utils.utils import hostname, update_dict
 
 
 def critical(msg):
@@ -15,117 +16,134 @@ def package_path():
     return dirname(abspath(__file__))
 
 
-class AttrDict(dict):
-    def __init__(self, *args, **kwargs):
-        super(AttrDict, self).__init__(*args, **kwargs)
-        self.__dict__ = self
+""" Depending on the machine name, return a dict conatining system-dependant paths
+    to human reference genomes and extras
+"""
+with open(join(package_path(), 'paths.yml')) as f:
+    loc_by_name = yaml.load(f)
+
+loc_dict = loc_by_name['generic']
+if 'TRAVIS' in os.environ.keys():
+    loc_dict = loc_by_name['travis']
+else:
+    for ld in loc_by_name.values():
+        if 'host_pattern' in ld:
+            if re.match(ld['host_pattern'], hostname):
+                loc_dict = update_dict(loc_dict, ld)
+
+name = loc_dict.get('name')
+genomes_dir = loc_dict.get('genomes_dir')
+cluster_cmd = loc_dict.get('cluster_cmd')
+threads_on_node = loc_dict.get('threads_on_node', 1)
+extras = loc_dict.get('extras')
+genomes = loc_dict.get('genomes')
 
 
-##############################
-### HPC dependencies paths ###
-
-def find_loc():
-    """ Depending on the machine name, return a dict conatining system-dependant paths
-        to human reference genomes and extras
-    """
-    with open(join(package_path(), 'paths.yml')) as f:
-        loc_by_name = {k: AttrDict(v) for k, v in yaml.load(f).items()}
-
-    loc = None
-    if 'TRAVIS' in os.environ.keys():
-        loc = loc_by_name['travis']
-    else:
-        for l in loc_by_name.values():
-            if re.match(l.host_pattern, hostname):
-                loc = l
-
-    return loc
-
-
-def get_loc():
-    loc = find_loc()
-    if loc:
-        return loc
-    else:
-        critical(f'hpc.py: could not detect location by hostname {hostname}')
-
-
-def ref_file_exists(genome, key='fa', loc=None, path=None, genomes_dir=None):
+def ref_file_exists(genome='all', key='fa', path=None):
     try:
-        return get_ref_file(genome, key, loc, path=path, genomes_dir=genomes_dir)
+        return get_ref_file(genome, key, path=path)
     except:
         return False
 
 
-def get_ref_file(genome='all', key='fa', loc=None, path=None, must_exist=True, genomes_dir=None):
+def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
     if path:
         if exists(path):
             return abspath(path)
         else:
-            critical(f'hpc.py: {path} is not found as file at {os.getcwd()}')
+            critical(f'Error: {path} is not found as file at {os.getcwd()}')
 
-    loc = loc or get_loc()
-    g_d = get_genomes_dict(genome, loc)
-
+    g_d = get_genomes_dict(genome)
     d = g_d
     keys = key if not isinstance(key, str) else [key]
     for k in keys:
         d = d.get(k)
         if not d:
-            critical(f'hpc.py: {genome} is not found as file at {os.getcwd()},'
+            critical(f'Error: {genome} is not found as file at {os.getcwd()},'
                      f' and no keys [{".".join(keys)}] for genome "{genome}"'
-                     f' for host "{loc.name}". Available keys: {", ".join(g_d)}')
+                     f' for host "{name or hostname}". Available keys: {", ".join(g_d)}')
     if isinstance(d, str):
         path = d
     else:
-        critical(f'hpc.py: path in genomes specified by keys [{".".join(keys)}] is not full.'
-                 f'Genome: {genome}, cwd: {os.getcwd()}, host: "{loc.name}"')
+        critical(f'Error: path in genomes specified by keys [{".".join(keys)}] is not full.'
+                 f'Genome: {genome}, cwd: {os.getcwd()}, host: "{name or hostname}"')
 
     # Resolve found path:
     if path.startswith('genomes'):
-        genomes_dir = genomes_dir or find_genomes_dir(loc)
-        path = abspath(join(genomes_dir, pardir, path))
+        if genomes_dir:
+            if not isdir(genomes_dir):
+                if must_exist:
+                    critical(f'Could not find the genomes directory {genomes_dir} for host {name or hostname}')
+                return None
+            gd = genomes_dir
+        else:
+            gd = find_genomes_dir()
+        path = abspath(join(gd, pardir, path))
 
-    if must_exist and not exists(path):
-        critical(f'hpc.py: {path} does not exist at host "{loc.name}" for genome "{genome}"')
+    if not exists(path):
+        if must_exist:
+            critical(f'Error: {path} does not exist for genome "{genome}" at at host "{name or hostname}"')
+        return None
+
     return path
 
 
-def get_genomes_dict(genome, loc=None):
-    loc = loc or get_loc()
-    if genome not in loc.genomes:
-        critical(f'hpc.py: genome {genome} not found for host "{loc.name}". Available: {", ".join(loc.genomes)}')
-    return loc.genomes[genome]
+def get_genomes_dict(genome):
+    if genome not in genomes:
+        critical(f'Error: genome {genome} not found for host "{name or hostname}". '
+                 f'Available: {", ".join(genomes)}')
+    return genomes[genome]
 
 
-def find_genomes_dir(loc):
+def find_genomes_dir():
+    """
+    Trying:
+    1. loc.genomes_dir (when probided explictily in paths.yaml or with --genomes-dir)
+    2. if umccrise installation under umccrise/genomes
+    2. at extras/umccrise/genomes
+    """
     tried = []
+    if genomes_dir and isdir(genomes_dir):
+        # if genomes_dir was provided explicitly (in paths.yaml or with --genomes-dir)
+        return genomes_dir
+    tried.append(f'--genomes-dir flag')
+    tried.append(f'loc.genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
+
     try:
-        return loc.genomes_dir
-    except:
-        tried.append(f'loc.genomes_dir in hpc_utils/paths.yaml for location {loc.name}')
-
-        try:
-            from umccrise import package_path as umccrise_path
-        except:
-            pass
-        else:
-            gd = abspath(join(umccrise_path(), pardir, 'genomes'))
-            if isdir(gd):
-                return gd
-            tried.append(f'umccrsie package parent folder ({gd})')
-
-        gd = abspath(join(package_path(), pardir, 'genomes'))
+        from umccrise import package_path as umccrise_path
+    except ImportError:
+        tried.append(f'umccrsie package parent folder')
+    else:
+        from umccrise import package_path as umccrise_path
+        gd = abspath(join(umccrise_path(), pardir, 'genomes'))
         if isdir(gd):
             return gd
-        tried.append(f'hpc_utils package parent folder ({gd})')
+        tried.append(f'umccrsie package parent folder ({gd})')
 
-        if loc is not None:
-            gd = join(loc.extras, 'umccrise', 'genomes')
-            if isdir(gd):
-                return gd
-            tried.append(f'extras/umccrise location ({gd})')
+    gd = abspath(join(package_path(), pardir, 'genomes'))
+    if isdir(gd):
+        return gd
+    tried.append(f'hpc_utils package parent folder ({gd})')
 
-        critical('Cannot find "genomes" Folder. Tried: ' + ', '.join(tried))
+    if extras and isdir(extras):
+        gd = join(extras, 'umccrise', 'genomes')
+        if isdir(gd):
+            return gd
+        tried.append(f'production installation of "umccrise" extras ({gd})')
+
+    critical(f'Cannot find "genomes" folder. Tried: {", ".join(tried)}')
+
+
+
+
+
+
+
+
+
+
+
+
+
