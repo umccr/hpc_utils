@@ -20,7 +20,7 @@ requirements:
 
 test:
   imports:
-    - hpc_utils
+    - hpc_utils.hpc
 
 about:
   home: https://github.com/umccr/hpc_utils

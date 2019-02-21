@@ -27,7 +27,7 @@ install:
   - conda install --use-local ${PACKAGE_NAME}
 
 script:
-  - python -c "from hpc_utils.hpc import find_loc; print(find_loc())"
+  - python -c "from hpc_utils import hpc; print(hpc.name)"
 
 deploy:
   # Deploy to Anaconda.org
