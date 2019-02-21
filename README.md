@@ -15,7 +15,7 @@
 >>> hpc.name
 'spartan'
 
->>> loc.extras
+>>> hpc.extras
 '/data/cephfs/punim0010/extras'
 
 >>> hpc.get_ref_file(genome='GRCh37', 'fa')

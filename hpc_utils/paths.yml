@@ -2,14 +2,14 @@ spartan:
   name: spartan
   host_pattern: spartan*
   threads_on_node: 32
-  cluster:
-    submit_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
+  cluster_cmd: sbatch -p vccc --cpus-per-task {threads} -t 24:00:00 --mem {resources.mem_mb}M
       -J {job_name} --output {log_file}
   extras:                   /data/cephfs/punim0010/extras
   genomes_dir:              /data/cephfs/punim0010/extras/umccrise/genomes
   barcodes_10x:             /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
-  hg19ToHg38:               /data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz
   genomes:
+    all:
+      hg19ToHg38:          '/data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz'
     GRCh37:
       bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
@@ -37,20 +37,20 @@ raijin:
   name: raijin
   host_pattern: ^raijin|(r\d+$)
   threads_on_node: 28
-  cluster:
-    jobscript: |
+  cluster_cmd: qsub -P gx8 -q normalbw -l wd -N {job_name} -o {log_file} -j oe -l
+      walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
+  cluster_jobscript: |
       #!/bin/sh
       # properties = {properties}
       export PATH={path}
       {exec_job}
-    submit_cmd: qsub -P gx8 -q normalbw -l wd -N {job_name} -o {log_file} -j oe -l
-      walltime=24:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
   extras:                    /g/data3/gx8/extras
   genomes_dir:               /g/data3/gx8/extras/umccrise/genomes
   barcodes_10x:              /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
-  hg19ToHg38:                /g/data3/gx8/extras/hg19ToHg38.over.chain.gz
   iedb_dir:                  /g/data3/gx8/extras/iedb
   genomes:
+    all:
+      hg19ToHg38:           '/g/data3/gx8/extras/hg19ToHg38.over.chain.gz'
     GRCh37:
       bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
@@ -70,13 +70,13 @@ vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
   threads_on_node: 1
-  cluster:
-    submit_cmd: eval
+  cluster_cmd: eval
   extras:                   /Users/vsaveliev/bio/extras
   genomes_dir:              /Users/vsaveliev/bio/genomes
   barcodes_10x:             /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
-  hg19ToHg38:               /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
   genomes:
+    all:
+      hg19ToHg38:          '/Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz'
     GRCh37:
       bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
       gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'

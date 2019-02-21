@@ -34,6 +34,7 @@ else:
 name = loc_dict.get('name')
 genomes_dir = loc_dict.get('genomes_dir')
 cluster_cmd = loc_dict.get('cluster_cmd')
+cluster_jobscript = loc_dict.get('cluster_jobscript')
 threads_on_node = loc_dict.get('threads_on_node', 1)
 extras = loc_dict.get('extras')
 genomes = loc_dict.get('genomes')
@@ -100,7 +101,7 @@ def get_genomes_dict(genome):
 def find_genomes_dir():
     """
     Trying:
-    1. loc.genomes_dir (when probided explictily in paths.yaml or with --genomes-dir)
+    1. genomes_dir (when probided explictily in paths.yaml or with --genomes-dir)
     2. if umccrise installation under umccrise/genomes
     2. at extras/umccrise/genomes
     """
@@ -109,7 +110,7 @@ def find_genomes_dir():
         # if genomes_dir was provided explicitly (in paths.yaml or with --genomes-dir)
         return genomes_dir
     tried.append(f'--genomes-dir flag')
-    tried.append(f'loc.genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
+    tried.append(f'genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
 
     try:
         from umccrise import package_path as umccrise_path
