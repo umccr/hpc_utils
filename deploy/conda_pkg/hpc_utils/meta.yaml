@@ -14,9 +14,11 @@ requirements:
   build:
     - python ==3.6
     - ngs_utils >=2.3.16
+    - pyyaml
   run:
     - python ==3.6
     - ngs_utils >=2.3.16
+    - pyyaml
 
 test:
   imports:

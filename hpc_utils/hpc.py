@@ -1,6 +1,5 @@
 import os
-from ngs_utils.logger import err
-from os.path import join, abspath, dirname, pardir, isfile, exists, isdir
+from os.path import join, abspath, dirname, pardir, exists, isdir
 import re
 import sys
 import yaml
