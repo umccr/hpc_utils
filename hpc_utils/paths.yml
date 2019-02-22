@@ -150,37 +150,37 @@ umccrise_docker:
   threads_on_node: 1
   extras: ''
   cluster: null
-  barcodes_10x: ''
+  genomes_dir:              /genomes
   genomes:
     all:
-      pcgr_data:            /genomes/pcgr/data
-      cacao_data:           /genomes/cacao/data
+      pcgr_data:             genomes/pcgr/data
+      cacao_data:            genomes/cacao/data
     GRCh37:
-      fa:                   /genomes/GRCh37/GRCh37.fa
-      panel_of_normals_dir: /genomes/GRCh37/panel_of_normals
-      gnomad:               /genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
-      problem_regions_dir:  /genomes/GRCh37/problem_regions
+      fa:                    genomes/GRCh37/GRCh37.fa
+      panel_of_normals_dir:  genomes/GRCh37/panel_of_normals
+      gnomad:                genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
+      problem_regions_dir:   genomes/GRCh37/problem_regions
       truth_sets:
         giab:
-          bed:              /genomes/GRCh37/truth_regions.bed
-      purple_gc:            /genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-      purple_het:           /genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hotspots:             /genomes/GRCh37/hotspots/merged.vcf.gz
-      hmf_giab_conf:        /genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:      /genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
-      coding_regions:       /genomes/GRCh37/hmf/coding_regions.bed
+          bed:               genomes/GRCh37/truth_regions.bed
+      purple_gc:             genomes/GRCh37/hmf/GC_profile.1000bp.cnp
+      purple_het:            genomes/GRCh37/hmf/germline_het_pon.bed.gz
+      hotspots:              genomes/GRCh37/hotspots/merged.vcf.gz
+      hmf_giab_conf:         genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability:       genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:        genomes/GRCh37/hmf/coding_regions.bed
     hg38:
-      fa:                   /genomes/hg38/hg38.fa
-      panel_of_normals_dir: /genomes/hg38/panel_of_normals
-      gnomad:               null
-      problem_regions_dir:  /genomes/hg38/problem_regions
+      fa:                    genomes/hg38/hg38.fa
+      panel_of_normals_dir:  genomes/hg38/panel_of_normals
+      gnomad:                null
+      problem_regions_dir:   genomes/hg38/problem_regions
       truth_sets:
         giab:
-          bed:              /genomes/hg38/truth_regions.bed
-      purple_gc:            /genomes/hg38/hmf/GC_profile.1000bp.cnp
-      purple_het:           /genomes/hg38/hmf/germline_het_pon.bed.gz
-      hmf_giab_conf:        /genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:      /genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
+          bed:               genomes/hg38/truth_regions.bed
+      purple_gc:             genomes/hg38/hmf/GC_profile.1000bp.cnp
+      purple_het:            genomes/hg38/hmf/germline_het_pon.bed.gz
+      hmf_giab_conf:         genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability:       genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
 
 
 generic:
