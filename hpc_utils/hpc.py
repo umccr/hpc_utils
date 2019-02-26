@@ -29,6 +29,7 @@ else:
         if 'host_pattern' in ld:
             if re.match(ld['host_pattern'], hostname):
                 loc_dict = update_dict(loc_dict, ld)
+                break
 
 name = loc_dict.get('name')
 genomes_dir = loc_dict.get('genomes_dir')
