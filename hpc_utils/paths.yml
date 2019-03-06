@@ -38,14 +38,14 @@ raijin:
   host_pattern: ^raijin|(r\d+$)
   threads_on_node: 28
   cluster_cmd: qsub -P gx8 -q normalbw -l wd -N {job_name} -o {log_file} -j oe -l
-      walltime=96:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
+      walltime=48:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M
   cluster_jobscript: |
       #!/bin/sh
       # properties = {properties}
       export PATH={path}
       {exec_job}
   extras:                    /g/data3/gx8/extras
-  genomes_dir:               /g/data3/gx8/extras/umccrise/genomes
+  genomes_dir:               /g/data3/gx8/extras/umccrise_2019_Mar/genomes
   barcodes_10x:              /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   iedb_dir:                  /g/data3/gx8/extras/iedb
   genomes:
@@ -195,8 +195,8 @@ generic:
     GRCh37:
       fa:                      genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
-      gnomad:                  genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       problem_regions_dir:     genomes/GRCh37/problem_regions
+      gnomad:                  genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       truth_sets:
         mb:
           vcf:                 genomes/GRCh37/MB-benchmark.vcf.gz
@@ -214,8 +214,13 @@ generic:
       fa:                      genomes/hg38/hg38.fa
       panel_of_normals_dir:    genomes/hg38/panel_of_normals
       problem_regions_dir:     genomes/hg38/problem_regions
+      gnomad:                  genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       purple_gc:               genomes/hg38/hmf/GC_profile.1000bp.cnp
       purple_het:              genomes/hg38/hmf/germline_het_pon.bed.gz
+      hotspots:                genomes/hg38/hotspots/merged.vcf.gz
+      hmf_giab_conf:           genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability:         genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:          genomes/hg38/hmf/coding_regions.bed
 
 
 
