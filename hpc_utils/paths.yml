@@ -106,11 +106,11 @@ vlad:
 #      purple_gc:            /Users/vsaveliev/bio/genomes/hg38/hmf/GC_profile.1000bp.cnp
 #      purple_het:           /Users/vsaveliev/bio/genomes/hg38/hmf/germline_het_pon.bed.gz
     test-GRCh37:
-      fa:                   /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa
-      panel_of_normals_dir: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals
+      fa:                   /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/test-GRCh37.fa
+      panel_of_normals_dir: /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/panel_of_normals
       truth_sets:
         test-mb:
-          vcf:              /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-benchmark.vcf.gz
+          vcf:              /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/test-benchmark.vcf.gz
 
 travis:
   name: travis
@@ -138,11 +138,11 @@ travis:
       hmf_giab_conf:        ../../data/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:      ../../data/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
     test-GRCh37:  # for vcf_stuff tests
-      fa:                   /home/travis/build/umccr/vcf_stuff/tests/data/test-GRCh37.fa
-      panel_of_normals_dir: /home/travis/build/umccr/vcf_stuff/tests/data/panel_of_normals
+      fa:                   /home/travis/build/vladsaveliev/vcf_stuff/tests/data/test-GRCh37.fa
+      panel_of_normals_dir: /home/travis/build/vladsaveliev/vcf_stuff/tests/data/panel_of_normals
       truth_sets:
         test-mb:
-          vcf:              /home/travis/build/umccr/vcf_stuff/tests/data/test-benchmark.vcf.gz
+          vcf:              /home/travis/build/vladsaveliev/vcf_stuff/tests/data/test-benchmark.vcf.gz
 
 umccrise_docker:
   name: umccrise_docker
