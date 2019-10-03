@@ -172,15 +172,17 @@ umccrise_docker:
     hg38:
       fa:                    genomes/hg38/hg38.fa
       panel_of_normals_dir:  genomes/hg38/panel_of_normals
-      gnomad:                null
+      gnomad:                genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       problem_regions_dir:   genomes/hg38/problem_regions
       truth_sets:
         giab:
           bed:               genomes/hg38/truth_regions.bed
       purple_gc:             genomes/hg38/hmf/GC_profile.1000bp.cnp
       purple_het:            genomes/hg38/hmf/germline_het_pon.bed.gz
+      hotspots:              genomes/hg38/hotspots/merged.vcf.gz
       hmf_giab_conf:         genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:       genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:        genomes/hg38/hmf/coding_regions.bed
 
 
 generic:
