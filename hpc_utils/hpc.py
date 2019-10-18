@@ -62,8 +62,7 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
     for k in keys:
         d = d.get(k)
         if not d:
-            critical(f'Error: {genome} is not found as file at {os.getcwd()},'
-                     f' and no keys [{".".join(keys)}] for genome "{genome}"'
+            critical(f'Can\'t find refererence file [{".".join(keys)}] for genome "{genome}"'
                      f' for host "{name or hostname}". Available keys: {", ".join(g_d)}')
     if isinstance(d, str):
         path = d

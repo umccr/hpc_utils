@@ -76,35 +76,15 @@ vlad:
   barcodes_10x:             /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
   genomes:
     all:
-      hg19ToHg38:          '/Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz'
+      hg19ToHg38:           /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
     GRCh37:
-      bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
-      gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
-#      panel_of_normals_dir: /Users/vsaveliev/bio/genomes/GRCh37/panel_of_normals
-#      gnomad:               /Users/vsaveliev/bio/genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.vcf.gz
-#      problem_regions_dir:  /Users/vsaveliev/bio/genomes/GRCh37/problem_regions
-#      truth_sets:
-#        mb:
-#          vcf:              /Users/vsaveliev/bio/genomes/GRCh37/validation/ICGC_MB/MB-benchmark.vcf.gz
-#        colo:
-#          vcf:              /Users/vsaveliev/bio/genomes/GRCh37/validation/COLO/truth_small_variants.vcf.gz
-#        giab:
-#          vcf:              /Users/vsaveliev/bio/genomes/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz
-#          bed:              /Users/vsaveliev/bio/genomes/GRCh37/validation/giab-NA12878/truth_regions.bed
-#      purple_gc:            /Users/vsaveliev/bio/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-#      purple_het:           /Users/vsaveliev/bio/genomes/GRCh37/hmf/germline_het_pon.bed.gz
-#      hotspots:             /Users/vsaveliev/bio/genomes/GRCh37/hotspots/merged.vcf.gz
-#      hmf_giab_conf:        /Users/vsaveliev/bio/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-#      hmf_mappability:      /Users/vsaveliev/bio/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
-#      coding_regions:       /Users/vsaveliev/bio/genomes/GRCh37/hmf/coding_regions.bed
+      fa:                   /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa
+      bwa:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa
+      gtf:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf
     hg38:
-#      fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
-      bwa:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa'
-      gtf:                 '/Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
-#      panel_of_normals_dir: /Users/vsaveliev/bio/genomes/hg38/panel_of_normals
-#      problem_regions_dir:  /Users/vsaveliev/bio/genomes/hg38/problem_regions
-#      purple_gc:            /Users/vsaveliev/bio/genomes/hg38/hmf/GC_profile.1000bp.cnp
-#      purple_het:           /Users/vsaveliev/bio/genomes/hg38/hmf/germline_het_pon.bed.gz
+      fa:                   /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa
+      bwa:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa
+      gtf:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf
     test-GRCh37:
       fa:                   /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/test-GRCh37.fa
       panel_of_normals_dir: /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/panel_of_normals
@@ -119,24 +99,8 @@ travis:
   extras: ''
   cluster: null
   barcodes_10x: ''
+  genome_dir: ../../data/genomes
   genomes:
-    all:
-      pcgr_data:            ''
-      cacao_data:           ''
-    # TODO re-structure this to replicate bcbio genomes structure, to support --bcbio-genomes for testing on new machines
-    GRCh37:  # for umccrise tests
-      fa:                   ../../data/genomes/GRCh37/GRCh37.fa
-      panel_of_normals_dir: ../../data/genomes/GRCh37/panel_of_normals
-      gnomad:               ../../data/genomes/GRCh37/gnomad_genome.common_pass_clean.vcf.gz
-      problem_regions_dir:  ../../data/genomes/GRCh37/problem_regions
-      truth_sets:
-        giab:
-          bed:              ../../data/genomes/GRCh37/truth_regions.bed
-      purple_gc:            ../../data/genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-      purple_het:           ../../data/genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hotspots:             ../../data/genomes/GRCh37/hotspots/merged.vcf.gz
-      hmf_giab_conf:        ../../data/genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:      ../../data/genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
     test-GRCh37:  # for vcf_stuff tests
       fa:                   /home/travis/build/vladsaveliev/vcf_stuff/tests/data/test-GRCh37.fa
       panel_of_normals_dir: /home/travis/build/vladsaveliev/vcf_stuff/tests/data/panel_of_normals
@@ -150,40 +114,7 @@ umccrise_docker:
   threads_on_node: 1
   extras: ''
   cluster: null
-  genomes_dir:              /genomes
-  genomes:
-    all:
-      pcgr_data:             genomes/pcgr/data
-      cacao_data:            genomes/cacao/data
-    GRCh37:
-      fa:                    genomes/GRCh37/GRCh37.fa
-      panel_of_normals_dir:  genomes/GRCh37/panel_of_normals
-      gnomad:                genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
-      problem_regions_dir:   genomes/GRCh37/problem_regions
-      truth_sets:
-        giab:
-          bed:               genomes/GRCh37/truth_regions.bed
-      purple_gc:             genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-      purple_het:            genomes/GRCh37/hmf/germline_het_pon.bed.gz
-      hotspots:              genomes/GRCh37/hotspots/merged.vcf.gz
-      hmf_giab_conf:         genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:       genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
-      coding_regions:        genomes/GRCh37/hmf/coding_regions.bed
-    hg38:
-      fa:                    genomes/hg38/hg38.fa
-      panel_of_normals_dir:  genomes/hg38/panel_of_normals
-      gnomad:                genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
-      problem_regions_dir:   genomes/hg38/problem_regions
-      truth_sets:
-        giab:
-          bed:               genomes/hg38/truth_regions.bed
-      purple_gc:             genomes/hg38/hmf/GC_profile.1000bp.cnp
-      purple_het:            genomes/hg38/hmf/germline_het_pon.bed.gz
-      hotspots:              genomes/hg38/hotspots/merged.vcf.gz
-      hmf_giab_conf:         genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:       genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
-      coding_regions:        genomes/hg38/hmf/coding_regions.bed
-
+  genomes_dir: /genomes
 
 generic:
   name: generic
@@ -199,19 +130,19 @@ generic:
       panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
       problem_regions_dir:     genomes/GRCh37/problem_regions
       gnomad:                  genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
-      truth_sets:
-        mb:
-          vcf:                 genomes/GRCh37/MB-benchmark.vcf.gz
-        colo:               # from /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set
-          vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
-        colo_illumina:
-          vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
       purple_gc:               genomes/GRCh37/hmf/GC_profile.1000bp.cnp
       purple_het:              genomes/GRCh37/hmf/germline_het_pon.bed.gz
       hotspots:                genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:           genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          genomes/GRCh37/hmf/coding_regions.bed
+      truth_sets:
+        mb:
+          vcf:                 genomes/GRCh37/MB-benchmark.vcf.gz
+        colo:  # from /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set
+          vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+        colo_illumina:
+          vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
     hg38:
       fa:                      genomes/hg38/hg38.fa
       panel_of_normals_dir:    genomes/hg38/panel_of_normals
@@ -223,24 +154,6 @@ generic:
       hmf_giab_conf:           genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          genomes/hg38/hmf/coding_regions.bed
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      truth_sets:
+        giab:
+          bed:                 genomes/hg38/truth_regions.bed
