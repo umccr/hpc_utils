@@ -3,6 +3,8 @@ from os.path import join, abspath, dirname, pardir, exists, isdir
 import re
 import sys
 import yaml
+
+from ngs_utils.file_utils import verify_dir
 from ngs_utils.utils import hostname, update_dict
 
 
@@ -97,7 +99,7 @@ def get_genomes_dict(genome):
     return genomes[genome]
 
 
-def find_genomes_dir():
+def find_genomes_dir(genomes_dir=None):
     """
     Trying:
     1. genomes_dir (when probided explictily in paths.yaml or with --genomes-dir)
@@ -110,6 +112,13 @@ def find_genomes_dir():
         return genomes_dir
     tried.append(f'--genomes-dir flag')
     tried.append(f'genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
+
+    if os.environ.get('UMCCRISE_GENOMES') is not None:
+        gd = os.environ.get('UMCCRISE_GENOMES')
+        if not isdir(gd):
+            critical(f'Directory $UMCCRISE_GENOMES={gd} does not exist or not a dir')
+        return gd
+    tried.append(f'$UMCCRISE_GENOMES env var')
 
     try:
         from umccrise import package_path as umccrise_path
@@ -136,10 +145,23 @@ def find_genomes_dir():
     critical(f'Cannot find "genomes" folder. Tried: {", ".join(tried)}')
 
 
+def set_genomes_dir(new_genomes_dir=None):
+    global genomes_dir
+    if new_genomes_dir:
+        # genomes_dir was provided explicitly (in paths.yaml or with --genomes-dir)
+        verify_dir(new_genomes_dir, is_critical=True)
+        genomes_dir = new_genomes_dir
+    else:
+        genomes_dir = find_genomes_dir()
 
 
-
-
+def secondary_conda_env(env_name='pcgr'):
+    py_path = sys.executable  # e.g. /miniconda/envs/umccrise/bin/python
+    env_path = dirname(dirname(py_path))  # e.g. /miniconda/envs/umccrise
+    env_path = env_path + '_' + env_name  # e.g. /miniconda/envs/umccrise_pcgr
+    if not isdir(env_path):
+        critical(f'Can\'t find environment {env_path}')
+    return env_path
 
 
 
