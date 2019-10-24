@@ -153,6 +153,8 @@ def set_genomes_dir(new_genomes_dir=None):
         genomes_dir = new_genomes_dir
     else:
         genomes_dir = find_genomes_dir()
+    if not genomes_dir:
+        critical('Could not detect genomes dir. Please specify one with --genomes-dir or $UMCCRISE_GENOMES')
 
 
 def secondary_conda_env(env_name='pcgr'):
