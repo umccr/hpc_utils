@@ -81,7 +81,7 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
                 return None
             gd = genomes_dir
         else:
-            gd = find_genomes_dir()
+            gd = find_genomes_dir(genomes_dir)
         path = abspath(join(gd, pardir, path))
 
     if not exists(path):
@@ -99,15 +99,15 @@ def get_genomes_dict(genome):
     return genomes[genome]
 
 
-def find_genomes_dir(genomes_dir=None):
+def find_genomes_dir(_genomes_dir=None):
     """
     Trying:
-    1. genomes_dir (when probided explictily in paths.yaml or with --genomes-dir)
+    1. genomes_dir (when provided explictily in paths.yaml or with --genomes-dir)
     2. if umccrise installation under umccrise/genomes
     2. at extras/umccrise/genomes
     """
     tried = []
-    if genomes_dir and isdir(genomes_dir):
+    if _genomes_dir and isdir(_genomes_dir):
         # if genomes_dir was provided explicitly (in paths.yaml or with --genomes-dir)
         return genomes_dir
     tried.append(f'--genomes-dir flag')
