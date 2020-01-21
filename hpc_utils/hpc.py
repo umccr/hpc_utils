@@ -12,6 +12,9 @@ def critical(msg):
     sys.stderr.write(msg + '\n')
     sys.exit(1)
 
+def info(msg):
+    sys.stderr.write(msg + '\n')
+
 
 def package_path():
     return dirname(abspath(__file__))
@@ -108,7 +111,7 @@ def find_genomes_dir(_genomes_dir=None):
     """
     tried = []
     if _genomes_dir and isdir(_genomes_dir):
-        # if genomes_dir was provided explicitly (in paths.yaml or with --genomes-dir)
+        info('Using genomes dir that was provided explicitly (in paths.yaml or with --genomes-dir)')
         return genomes_dir
     tried.append(f'--genomes-dir flag')
     tried.append(f'genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
@@ -117,6 +120,7 @@ def find_genomes_dir(_genomes_dir=None):
         gd = os.environ.get('UMCCRISE_GENOMES')
         if not isdir(gd):
             critical(f'Directory $UMCCRISE_GENOMES={gd} does not exist or not a dir')
+        info('Using genomes dir set by $UMCCRISE_GENOMES env var')
         return gd
     tried.append(f'$UMCCRISE_GENOMES env var')
 
@@ -127,18 +131,23 @@ def find_genomes_dir(_genomes_dir=None):
     else:
         from umccrise import package_path as umccrise_path
         gd = abspath(join(umccrise_path(), pardir, 'genomes'))
+        gd2 = abspath(join(umccrise_path(), pardir, pardir, 'genomes'))
+        gd = gd if isdir(gd) else gd2
         if isdir(gd):
+            info(f'Using genomes dir at umccrise package parent folder')
             return gd
         tried.append(f'umccrsie package parent folder ({gd})')
 
     gd = abspath(join(package_path(), pardir, 'genomes'))
     if isdir(gd):
+        info(f'Using genomes dir at hpc_utils package parent folder')
         return gd
     tried.append(f'hpc_utils package parent folder ({gd})')
 
     if extras and isdir(extras):
         gd = join(extras, 'umccrise', 'genomes')
         if isdir(gd):
+            info(f'Using genomes dir at production installation of "umccrise" extras')
             return gd
         tried.append(f'production installation of "umccrise" extras ({gd})')
 
