@@ -129,7 +129,7 @@ generic:
       problem_regions_dir:     genomes/GRCh37/problem_regions
       gnomad:                  genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       purple_gc:               genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-      purple_het:              genomes/GRCh37/hmf/germline_het_pon.bed.gz
+      purple_het:              genomes/GRCh37/hmf/GermlineHetPon.hg19.vcf.gz
       hotspots:                genomes/GRCh37/hotspots/merged.vcf.gz
       hmf_giab_conf:           genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
@@ -148,7 +148,7 @@ generic:
       problem_regions_dir:     genomes/hg38/problem_regions
       gnomad:                  genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       purple_gc:               genomes/hg38/hmf/GC_profile.1000bp.cnp
-      purple_het:              genomes/hg38/hmf/germline_het_pon.bed.gz
+      purple_het:              genomes/hg38/hmf/GermlineHetPon.hg38.vcf.gz
       hotspots:                genomes/hg38/hotspots/merged.vcf.gz
       hmf_giab_conf:           genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
