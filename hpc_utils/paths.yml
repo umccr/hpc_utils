@@ -135,6 +135,7 @@ generic:
       hmf_mappability:         genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          genomes/GRCh37/hmf/coding_regions.bed
       gridss_purple_linx_dir:  genomes/GRCh37/hmf/gridss
+      snpeff:                  genomes/GRCh37/snpeff/data/GRCh37.75
       truth_sets:
         mb:
           vcf:                 genomes/GRCh37/MB-benchmark.vcf.gz
@@ -153,6 +154,7 @@ generic:
       hmf_giab_conf:           genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          genomes/hg38/hmf/coding_regions.bed
+      snpeff:                  genomes/hg38/snpeff/data/GRCh38.92
       truth_sets:
         giab:
           bed:                 genomes/hg38/truth_regions.bed
