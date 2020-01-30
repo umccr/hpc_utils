@@ -76,6 +76,7 @@ vlad:
     all:
       barcodes_10x:         /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
       hg19ToHg38:           /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
+      iedb_dir:             ~/rjn/extras/iedb
 #    GRCh37:
 #      fa:                   /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa
 #      bwa:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa

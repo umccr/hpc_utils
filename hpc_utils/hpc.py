@@ -4,7 +4,7 @@ import re
 import sys
 import yaml
 
-from ngs_utils.file_utils import verify_dir
+from ngs_utils.file_utils import verify_dir, verify_file, adjust_path, verify_obj_by_path
 from ngs_utils.utils import hostname, update_dict
 
 
@@ -56,8 +56,9 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
     """ If path does not exist, checks the "genomes" dictionary for the location.
     """
     if path:
+        path = adjust_path(path)
         if exists(path):
-            return abspath(path)
+            return adjust_path(path)
         else:
             critical(f'Error: {path} is not found as file at {os.getcwd()}')
 
@@ -87,9 +88,10 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
             gd = find_genomes_dir(genomes_dir)
         path = abspath(join(gd, pardir, path))
 
+    path = adjust_path(path)
     if not exists(path):
         if must_exist:
-            critical(f'Error: {path} does not exist for genome "{genome}" at at host "{name or hostname}"')
+            critical(f'Error: {path} does not exist for genome "{genome}" at host "{name or hostname}"')
         return None
 
     return path
