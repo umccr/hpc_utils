@@ -110,7 +110,6 @@ travis:
 umccrise_docker:
   name: umccrise_docker
   host_pattern: ^umccrise_docker$
-  threads_on_node: 1
   extras: ''
   cluster: null
   genomes_dir: /genomes
