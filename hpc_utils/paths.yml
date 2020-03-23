@@ -95,7 +95,6 @@ vlad:
 travis:
   name: travis
   host_pattern: ^travis-
-  threads_on_node: 1
   extras: ''
   cluster: null
   genome_dir: ../../data/genomes
@@ -116,7 +115,6 @@ umccrise_docker:
 
 generic:
   name: generic
-  threads_on_node: 1
   extras: ''
   genomes:
     all:

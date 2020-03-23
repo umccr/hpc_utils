@@ -3,6 +3,7 @@ from os.path import join, abspath, dirname, pardir, exists, isdir
 import re
 import sys
 import yaml
+import multiprocessing
 
 from ngs_utils.file_utils import verify_dir, verify_file, adjust_path, verify_obj_by_path
 from ngs_utils.utils import hostname, update_dict
@@ -40,7 +41,7 @@ name = loc_dict.get('name')
 genomes_dir = loc_dict.get('genomes_dir')
 cluster_cmd = loc_dict.get('cluster_cmd')
 cluster_jobscript = loc_dict.get('cluster_jobscript')
-threads_on_node = loc_dict.get('threads_on_node', 1)
+threads_on_node = loc_dict.get('threads_on_node', multiprocessing.cpu_count())
 extras = loc_dict.get('extras')
 genomes = loc_dict.get('genomes')
 
