@@ -41,7 +41,7 @@ name = loc_dict.get('name')
 genomes_dir = loc_dict.get('genomes_dir')
 cluster_cmd = loc_dict.get('cluster_cmd')
 cluster_jobscript = loc_dict.get('cluster_jobscript')
-threads_on_node = loc_dict.get('threads_on_node', multiprocessing.cpu_count())
+ncpus_on_node = loc_dict.get('ncpus_on_node', multiprocessing.cpu_count())
 extras = loc_dict.get('extras')
 genomes = loc_dict.get('genomes')
 
