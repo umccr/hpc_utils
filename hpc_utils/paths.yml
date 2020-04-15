@@ -6,31 +6,29 @@ spartan:
       -J {job_name} --output {log_file}
   extras:                   /data/cephfs/punim0010/extras
   genomes_dir:              /data/cephfs/punim0010/extras/umccrise/genomes
-  barcodes_10x:             /data/cephfs/punim0010/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
   genomes:
     all:
       hg19ToHg38:          '/data/cephfs/punim0010/extras/hg19ToHg38.over.chain.gz'
-    GRCh37:
-      bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
-      gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
-      truth_sets:
-        dream:
-          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_small_variants.vcf.gz'
-          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_regions.bed'
-        giab:
-          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz'
-          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
-      ema:                 '/data/cephfs/punim0010/extras/10x/ema_ref/GRCh37'
-    hg38:
-      bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
-      gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
-      truth_sets:
-        dream:
-          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/dream-syn3-crossmap/truth_small_variants.vcf.gz'
-          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/dream-syn3-crossmap/truth_regions.bed'
-        giab:
-          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_small_variants.vcf.gz'
-          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
+#    GRCh37:
+#      bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
+#      gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
+#      truth_sets:
+#        dream:
+#          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_small_variants.vcf.gz'
+#          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/dream-syn3/truth_regions.bed'
+#        giab:
+#          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz'
+#          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
+#    hg38:
+#      bwa:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
+#      gtf:                 '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
+#      truth_sets:
+#        dream:
+#          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/dream-syn3-crossmap/truth_small_variants.vcf.gz'
+#          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/dream-syn3-crossmap/truth_regions.bed'
+#        giab:
+#          vcf:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_small_variants.vcf.gz'
+#          bed:             '/data/cephfs/punim0010/local/stable/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
 
 # sync to raijin: `rsync -rv --size-only ../../genomes/ rjn:genomes`
 raijin:
@@ -47,30 +45,29 @@ raijin:
   extras:                    /g/data3/gx8/extras
   genomes:
     all:
-      barcodes_10x:          /g/data3/gx8/extras/10x/longranger-2.1.6/longranger-cs/2.1.6/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
       iedb_dir:              /g/data3/gx8/extras/iedb
-      hg19ToHg38:           '/g/data3/gx8/extras/hg19ToHg38.over.chain.gz'
-    GRCh37:
-      bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
-      gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
-      truth_sets:
-        giab:
-          vcf:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz'
-          bed:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
-    hg38:
-      bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
-      gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
-      truth_sets:
-        giab:
-          vcf:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_small_variants.vcf.gz'
-          bed:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
+      hg19ToHg38:            /g/data3/gx8/extras/hg19ToHg38.over.chain.gz
+#    GRCh37:
+#      bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
+#      gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
+#      truth_sets:
+#        giab:
+#          vcf:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_small_variants.vcf.gz'
+#          bed:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/validation/giab-NA12878/truth_regions.bed'
+#    hg38:
+#      bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/bwa/hg38.fa'
+#      gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf'
+#      truth_sets:
+#        giab:
+#          vcf:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_small_variants.vcf.gz'
+#          bed:              '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
 
 vlad:
   name: vlad
   host_pattern: ^5180L-135800-M.local$
   cluster_cmd: eval
   extras:                   /Users/vsaveliev/bio/extras
-  genomes_dir:              /Users/vsaveliev/bio/genomes
+  genomes_dir:              /Users/vsaveliev/rjn/extras/vlad/synced/umccr/genomes
   genomes:
     all:
       barcodes_10x:         /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
@@ -120,6 +117,7 @@ generic:
       pcgr_data:               genomes/pcgr/data
       cacao_data:              genomes/cacao/data
       pyensembl_data:          genomes/pyensembl
+      viral:                   genomes/viral
     GRCh37:
       fa:                      genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
@@ -143,6 +141,7 @@ generic:
           vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
     hg38:
       fa:                      genomes/hg38/hg38.fa
+      bwa:                     genomes/hg38/bwa
       panel_of_normals_dir:    genomes/hg38/panel_of_normals
       problem_regions_dir:     genomes/hg38/problem_regions
       gnomad:                  genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
