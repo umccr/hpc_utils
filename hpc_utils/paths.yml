@@ -117,7 +117,7 @@ generic:
       pcgr_data:               genomes/pcgr/data
       cacao_data:              genomes/cacao/data
       pyensembl_data:          genomes/pyensembl
-      viral:                   genomes/viral
+      gdc_viral_fa:            genomes/viral/gdc-viral.fa
     GRCh37:
       fa:                      genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
@@ -142,6 +142,7 @@ generic:
     hg38:
       fa:                      genomes/hg38/hg38.fa
       bwa:                     genomes/hg38/bwa
+      fa_plus_gdc_viruses:     genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
       panel_of_normals_dir:    genomes/hg38/panel_of_normals
       problem_regions_dir:     genomes/hg38/problem_regions
       gnomad:                  genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
