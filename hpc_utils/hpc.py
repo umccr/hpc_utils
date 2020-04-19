@@ -92,7 +92,6 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
     if not exists(path):
         if must_exist:
             critical(f'Error: {path} does not exist for genome "{genome}" at host "{name or hostname}"')
-        return None
 
     return path
 

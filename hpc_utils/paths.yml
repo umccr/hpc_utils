@@ -141,7 +141,7 @@ generic:
           vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
     hg38:
       fa:                      genomes/hg38/hg38.fa
-      bwa:                     genomes/hg38/bwa
+      bwa:                     genomes/hg38/bwa/hg38.fa
       fa_plus_gdc_viruses:     genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
       panel_of_normals_dir:    genomes/hg38/panel_of_normals
       problem_regions_dir:     genomes/hg38/problem_regions
