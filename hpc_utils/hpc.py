@@ -40,7 +40,11 @@ name = loc_dict.get('name')
 genomes_dir = loc_dict.get('genomes_dir')
 cluster_cmd = loc_dict.get('cluster_cmd')
 cluster_jobscript = loc_dict.get('cluster_jobscript')
-ncpus_on_node = loc_dict.get('ncpus_on_node', len(os.sched_getaffinity(0)))
+try:
+    ncpus_on_node = loc_dict.get('ncpus_on_node', len(os.sched_getaffinity(0)))
+except:
+    ncpus_on_node = loc_dict.get('ncpus_on_node', os.cpu_count())
+
 extras = loc_dict.get('extras')
 genomes = loc_dict.get('genomes')
 
