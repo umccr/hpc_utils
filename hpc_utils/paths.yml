@@ -64,7 +64,7 @@ raijin:
 
 vlad:
   name: vlad
-  host_pattern: ^5180L-135800-M.local$
+  host_pattern: ^5180L-135800-M.local|x86_64-apple-darwin13.4.0$
   cluster_cmd: eval
   extras:                   /Users/vsaveliev/bio/extras
   genomes_dir:              /Users/vsaveliev/rjn/extras/vlad/synced/umccr/genomes
@@ -73,14 +73,9 @@ vlad:
       barcodes_10x:         /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
       hg19ToHg38:           /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
       iedb_dir:             ~/rjn/extras/iedb
-#    GRCh37:
-#      fa:                   /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa
-#      bwa:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa
-#      gtf:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf
-#    hg38:
-#      fa:                   /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa
-#      bwa:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/bwa/hg38.fa
-#      gtf:                  /Users/vsaveliev/bio/reference_data/genomes/Hsapiens/hg38/rnaseq/ref-transcripts.gtf
+    hg38:
+      fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
+      fa_plus_gdc_viruses:  /Users/vsaveliev/bio/genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
     test-GRCh37:
       fa:                   /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/test-GRCh37.fa
       panel_of_normals_dir: /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/panel_of_normals
