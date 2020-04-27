@@ -171,12 +171,15 @@ def set_genomes_dir(new_genomes_dir=None):
         critical('Could not detect genomes dir. Please specify one with --genomes-dir or $UMCCRISE_GENOMES')
 
 
-def secondary_conda_env(env_name='pcgr'):
+def secondary_conda_env(env_name='pcgr', is_critical=False):
     py_path = sys.executable  # e.g. /miniconda/envs/umccrise/bin/python
     env_path = dirname(dirname(py_path))  # e.g. /miniconda/envs/umccrise
     env_path = env_path + '_' + env_name  # e.g. /miniconda/envs/umccrise_pcgr
     if not isdir(env_path):
-        critical(f'Can\'t find environment {env_path}')
+        if is_critical:
+            critical(f'Can\'t find environment {env_path}')
+        else:
+            return None
     return env_path
 
 
