@@ -73,6 +73,7 @@ vlad:
       barcodes_10x:         /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
       hg19ToHg38:           /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
       iedb_dir:             ~/rjn/extras/iedb
+      pyensembl_data:       /Users/vsaveliev/bio/genomes/pyensembl
     hg38:
       fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
       fa_plus_gdc_viruses:  /Users/vsaveliev/bio/genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
