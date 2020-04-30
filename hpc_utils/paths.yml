@@ -114,6 +114,7 @@ generic:
       cacao_data:              genomes/cacao/data
       pyensembl_data:          genomes/pyensembl
       gdc_viral_fa:            genomes/viral/gdc-viral.fa
+      refseq_msh:              genomes/refseq.genomes.k21s1000.msh
     GRCh37:
       fa:                      genomes/GRCh37/GRCh37.fa
       panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
