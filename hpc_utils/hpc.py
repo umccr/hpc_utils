@@ -115,11 +115,15 @@ def find_genomes_dir(_genomes_dir=None):
     2. at extras/umccrise/genomes
     """
     tried = []
+
+    if genomes_dir:
+        return genomes_dir
+    tried.append(f'genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
+
     if _genomes_dir and isdir(_genomes_dir):
         info('Using genomes dir that was provided explicitly (in paths.yaml or with --genomes-dir)')
-        return genomes_dir
-    tried.append(f'--genomes-dir flag')
-    tried.append(f'genomes_dir in hpc_utils/paths.yaml for location {name or hostname}')
+        return _genomes_dir
+    tried.append(f'--genomes-dir option')
 
     if os.environ.get('UMCCRISE_GENOMES') is not None:
         gd = os.environ.get('UMCCRISE_GENOMES')
