@@ -36,7 +36,7 @@ raijin:
   host_pattern: ^gadi
   ncpus_on_node: 48
   cluster_cmd: qsub -P gx8 -q normal -l wd -N {job_name} -o {log_file} -j oe -l
-      walltime=48:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M,storage=gdata/gx8
+      walltime={resources.hours}:00:00,ncpus={threads},wd,mem={resources.mem_mb}M,jobfs={resources.disk_mb}M,storage=gdata/gx8
   cluster_jobscript: |
       #!/bin/sh
       # properties = {properties}
