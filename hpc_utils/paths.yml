@@ -78,11 +78,11 @@ vlad:
       fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
       fa_plus_gdc_viruses:  /Users/vsaveliev/bio/genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
     test-GRCh37:
-      fa:                   /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/test-GRCh37.fa
-      panel_of_normals_dir: /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/panel_of_normals
+      fa:                   /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa
+      panel_of_normals_dir: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals
       truth_sets:
         test-mb:
-          vcf:              /Users/vsaveliev/git/vladsaveliev/vcf_stuff/tests/data/test-benchmark.vcf.gz
+          vcf:              /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-benchmark.vcf.gz
 
 travis:
   name: travis
