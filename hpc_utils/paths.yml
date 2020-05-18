@@ -110,13 +110,12 @@ generic:
   extras: ''
   genomes:
     all:
-      pcgr_data:               genomes/pcgr/data
-      cacao_data:              genomes/cacao/data
       pyensembl_data:          genomes/pyensembl
-      gdc_viral_fa:            genomes/viral/gdc-viral.fa
-      refseq_msh:              genomes/refseq.genomes.k21s1000.msh
+      refseq_msh:              genomes/microbiome/refseq.genomes.k21s1000.msh
     GRCh37:
       fa:                      genomes/GRCh37/GRCh37.fa
+      pcgr_data:               genomes/GRCh37/pcgr/data
+      cacao_data:              genomes/GRCh37/cacao/data
       panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
       problem_regions_dir:     genomes/GRCh37/problem_regions
       gnomad:                  genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
@@ -139,6 +138,9 @@ generic:
     hg38:
       fa:                      genomes/hg38/hg38.fa
       bwa:                     genomes/hg38/bwa/hg38.fa
+      pcgr_data:               genomes/hg38/pcgr/data
+      cacao_data:              genomes/hg38/cacao/data
+      gdc_viral_fa:            genomes/hg38/viral/gdc-viral.fa
       fa_plus_gdc_viruses:     genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
       panel_of_normals_dir:    genomes/hg38/panel_of_normals
       problem_regions_dir:     genomes/hg38/problem_regions
